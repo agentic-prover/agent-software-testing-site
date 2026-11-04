@@ -1,0 +1,43 @@
+/* SPDX-License-Identifier: Apache-2.0
+   Copyright 2026 The Agent Software Testing authors
+
+   Forced colours (Windows high contrast): the chosen and the current state are drawn with system colours. The build appends this file last
+   to the combined stylesheet, after site.css and branchmap.css, so that no rule of those files can override a rule here. Box shadows are
+   removed by the browser in this mode, so every state that a shadow draws is repeated with an outline or a system colour. */
+@media (forced-colors: active) {
+  .seg input:checked + span, .tabs button[aria-selected="true"], .bm-tool.is-on, .seg-links a[aria-current="page"] { forced-color-adjust: none; background: Highlight; color: HighlightText; }
+  .bm-tool.is-on .bm-tool-n, .bm-tool.is-on .bm-tool-u, .bm-tool.is-on .bm-tool-name, .bm-tool.is-on .bm-tool-note { color: HighlightText; }
+  .chip[aria-pressed="true"], .chip[aria-pressed="mixed"] { forced-color-adjust: none; background: Highlight; color: HighlightText; border-color: Highlight; }
+  .chip[aria-pressed="true"] .cm, .chip[aria-pressed="mixed"] .cm { forced-color-adjust: none; background: HighlightText; border-color: HighlightText; }
+  .chip[aria-pressed="true"] .cm::after { border-color: Highlight; }
+  .chip[aria-pressed="mixed"] .cm::after { background: Highlight; }
+  .bm-chip[aria-pressed="true"] { forced-color-adjust: none; outline: 2px solid Highlight; outline-offset: -2px; }
+  .tool-btn[aria-pressed="true"] { forced-color-adjust: none; background: Highlight; color: HighlightText; border-color: Highlight; }
+  .tool-btn[aria-pressed="true"] .dot { border-color: HighlightText; }
+  .bm-order .seg[aria-disabled="true"] input:checked + span { background: GrayText; color: Canvas; }
+  .bm-order .seg[aria-disabled="true"] label > span { color: GrayText; }
+  .seg input:checked:focus-visible + span, .seg-links a[aria-current="page"]:focus-visible { outline-color: HighlightText; }
+  .nav a[aria-current] { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 6px; }
+  .nav a[aria-current]::after { forced-color-adjust: none; background: Highlight; }
+  .tbl .mb i { forced-color-adjust: none; background: CanvasText; }
+  .lgrow.off .keyswatch { outline: 1px solid CanvasText; outline-offset: -1px; }
+  .seg, .tabs, .btn, .chip, select, .rowbtn { border-color: ButtonBorder; }
+  /* Swatches carry the colour that a legend or a key explains, so they keep it, and a border in the text colour keeps the swatch visible whatever the system
+     background is: the key of the branch map (a chip per class, the mark in a pin's list) and the swatches of the skyline key. */
+  .bm-chip-sw, .bm-d-mark, .sky-lg .sw { forced-color-adjust: none; border: 1px solid ButtonText; }
+  /* The rings and the outline over the map are drawn with borders (the halo of a shadow is removed in this mode). */
+  .bm-ring, .bm-band { forced-color-adjust: none; box-shadow: none; }
+  .bm-ring { border-color: Highlight; }
+  .bm-cursor { border-color: CanvasText; outline: 2px solid Canvas; outline-offset: 0; }
+  .bm-band { border-color: CanvasText; opacity: 1; }
+  .terms > summary, .terms[open] > summary { border-color: ButtonBorder; }
+  .terms-dl { border-color: CanvasText; }
+  /* The count inside a chosen chip takes the chip's own colour (it is drawn with the faint ink otherwise, which is not a system colour). */
+  .chip small { color: inherit; }
+  /* The paired bars, their swatches and the bar of the union on Compare, and the tick of the range on Results, are filled backgrounds, which this mode would paint in the
+     page colour: A is the text colour, B the grey one, the part that both reach has a border so that the three parts stay apart. */
+  .a-fill, .ab.a { forced-color-adjust: none; background: CanvasText; }
+  .b-fill, .ab.b { forced-color-adjust: none; background: GrayText; }
+  .stack .both { forced-color-adjust: none; background: Canvas; outline: 1px solid CanvasText; outline-offset: -1px; }
+  .tbl .mb.rng b { forced-color-adjust: none; background: Highlight; }
+}

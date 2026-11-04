@@ -1,0 +1,1104 @@
+{
+ "schema": "agent-software-testing/site-systems@0.1",
+ "release": "0.1.0",
+ "groups": {
+  "main": "Shown by default. The systems a reader is most likely to compare.",
+  "ablation": "Variants of the agent that switch off or change one part, to show what that part contributes.",
+  "seeding": "Runs of a tool that start from seed inputs produced by another system.",
+  "control": "Runs that check a comparison, for example the same tool with one core instead of six, or a fuzzer without the agent."
+ },
+ "study_views": {
+  "ablation": {
+   "references": "before"
+  },
+  "seeding": {
+   "references": "none"
+  },
+  "control": {
+   "references": "beside"
+  }
+ },
+ "backends": {
+  "klee": "KLEE",
+  "direct-input": "Direct-Input",
+  "aflplusplus": "AFL++",
+  "concolic-loop": "Concolic loop",
+  "symcc+aflplusplus": "SymCC with AFL++",
+  "symsan+aflplusplus": "SymSan with AFL++"
+ },
+ "references": {
+  "klee": {
+   "kind": "paper",
+   "title": "KLEE: Unassisted and Automatic Generation of High-Coverage Tests for Complex Systems Programs",
+   "venue": "8th USENIX Symposium on Operating Systems Design and Implementation (OSDI 08)",
+   "year": 2008,
+   "pages": null,
+   "doi": null,
+   "url": "https://www.usenix.org/conference/osdi-08/klee-unassisted-and-automatic-generation-high-coverage-tests-complex-systems",
+   "verified": true,
+   "checked": "2026-10"
+  },
+  "symtuner": {
+   "kind": "paper",
+   "title": "SymTuner: Maximizing the Power of Symbolic Execution by Adaptively Tuning External Parameters",
+   "venue": "Proceedings of the 44th International Conference on Software Engineering (ICSE 2022)",
+   "year": 2022,
+   "pages": "2068-2079",
+   "doi": "10.1145/3510003.3510185",
+   "url": "https://doi.org/10.1145/3510003.3510185",
+   "verified": true,
+   "checked": "2026-10"
+  },
+  "aflpp": {
+   "kind": "paper",
+   "title": "AFL++: Combining Incremental Steps of Fuzzing Research",
+   "venue": "14th USENIX Workshop on Offensive Technologies (WOOT 20)",
+   "year": 2020,
+   "pages": null,
+   "doi": null,
+   "url": "https://www.usenix.org/conference/woot20/presentation/fioraldi",
+   "verified": true,
+   "note": "The paper describes an early release of AFL++. The runs in this release use version 5.02c.",
+   "checked": "2026-10"
+  },
+  "symcc": {
+   "kind": "paper",
+   "title": "Symbolic execution with SymCC: Don't interpret, compile",
+   "venue": "29th USENIX Security Symposium (USENIX Security 20)",
+   "year": 2020,
+   "pages": "181-198",
+   "doi": null,
+   "url": "https://www.usenix.org/conference/usenixsecurity20/presentation/poeplau",
+   "verified": true,
+   "checked": "2026-10"
+  },
+  "symsan": {
+   "kind": "paper",
+   "title": "SYMSAN: Time and Space Efficient Concolic Execution via Dynamic Data-flow Analysis",
+   "venue": "31st USENIX Security Symposium (USENIX Security 22)",
+   "year": 2022,
+   "pages": "2531-2548",
+   "doi": null,
+   "url": "https://www.usenix.org/conference/usenixsecurity22/presentation/chen-ju",
+   "verified": true,
+   "checked": "2026-10"
+  },
+  "concollmic": {
+   "kind": "paper",
+   "title": "Agentic Concolic Execution",
+   "venue": "2026 IEEE Symposium on Security and Privacy (SP)",
+   "year": 2026,
+   "pages": "1673-1691",
+   "doi": "10.1109/SP63933.2026.00003",
+   "url": "https://doi.org/10.1109/SP63933.2026.00003",
+   "project_url": "https://concollmic.github.io",
+   "verified": true,
+   "checked": "2026-10"
+  },
+  "gpt-5.5": {
+   "kind": "model",
+   "name": "GPT-5.5",
+   "provider": "OpenAI",
+   "model_id": "gpt-5.5",
+   "snapshot": "gpt-5.5-2026-04-23",
+   "title": "GPT-5.5 model page, OpenAI API documentation",
+   "year": 2026,
+   "doi": null,
+   "url": "https://developers.openai.com/api/docs/models/gpt-5.5",
+   "verified": true,
+   "checked": "2026-10"
+  },
+  "gpt-5.4": {
+   "kind": "model",
+   "name": "GPT-5.4",
+   "provider": "OpenAI",
+   "model_id": "gpt-5.4",
+   "snapshot": "gpt-5.4-2026-03-05",
+   "title": "GPT-5.4 model page, OpenAI API documentation",
+   "year": 2026,
+   "doi": null,
+   "url": "https://developers.openai.com/api/docs/models/gpt-5.4",
+   "verified": true,
+   "checked": "2026-10"
+  },
+  "deepseek-v4.1-flash": {
+   "kind": "model",
+   "name": "DeepSeek V4.1 Flash",
+   "provider": "DeepSeek",
+   "model_id": "deepseek-flash",
+   "model_version": "DeepSeek-V4.1-Flash",
+   "title": "DeepSeek-V4.1-Flash release note, DeepSeek API documentation",
+   "year": 2026,
+   "doi": null,
+   "url": "https://api-docs.deepseek.com/news/news260910",
+   "also": [
+    {
+     "label": "API model and price list",
+     "url": "https://api-docs.deepseek.com/quick_start/pricing"
+    },
+    {
+     "label": "Model card and weights",
+     "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash"
+    }
+   ],
+   "verified": true,
+   "note": "The provider's API name for the model is deepseek-flash. The data tables use the name deepseek-v4.1-flash.",
+   "checked": "2026-10"
+  },
+  "agolic": {
+   "kind": "paper",
+   "title": "Agentic Planning for Symbolic Execution",
+   "venue": "arXiv",
+   "year": 2026,
+   "pages": null,
+   "doi": null,
+   "url": "https://arxiv.org/abs/2608.06397",
+   "verified": true,
+   "checked": "2026-10"
+  }
+ },
+ "systems": {
+  "agolic-klee-gpt55": {
+   "id": "agolic-klee-gpt55",
+   "variant": "KLEE",
+   "summary": "A language model agent plans a campaign of short KLEE invocations.",
+   "family": "agent",
+   "backend": "klee",
+   "group": "main",
+   "track": "open",
+   "model": {
+    "key": "gpt-5.5",
+    "name": "GPT-5.5"
+   },
+   "cores": 6,
+   "budget_s": 21600,
+   "budget_text": "six hours",
+   "measures": [
+    "canonical",
+    "standard",
+    "common-observer"
+   ],
+   "description": "A language model agent plans a campaign as a series of short KLEE invocations. For each invocation it chooses the target function, the command-line arguments, which inputs are symbolic, the environment and the concrete seed inputs. It decides from the program's source code and the coverage of earlier runs.",
+   "reference": {
+    "key": "agolic",
+    "citation": "Agentic Planning for Symbolic Execution. arXiv 2608.06397, 2026.",
+    "doi": null,
+    "url": "https://arxiv.org/abs/2608.06397",
+    "status": "verified"
+   },
+   "see_also": [
+    {
+     "key": "klee",
+     "citation": "KLEE: Unassisted and Automatic Generation of High-Coverage Tests for Complex Systems Programs. 8th USENIX Symposium on Operating Systems Design and Implementation (OSDI 08), 2008.",
+     "url": "https://www.usenix.org/conference/osdi-08/klee-unassisted-and-automatic-generation-high-coverage-tests-complex-systems"
+    }
+   ],
+   "model_reference": {
+    "key": "gpt-5.5",
+    "url": "https://developers.openai.com/api/docs/models/gpt-5.5"
+   }
+  },
+  "agolic-klee-deepseek": {
+   "id": "agolic-klee-deepseek",
+   "variant": "KLEE",
+   "summary": "The same agent and code, with another model.",
+   "family": "agent",
+   "backend": "klee",
+   "group": "main",
+   "track": "open",
+   "model": {
+    "key": "deepseek-v4.1-flash",
+    "name": "DeepSeek V4.1 Flash"
+   },
+   "cores": 6,
+   "budget_s": 21600,
+   "budget_text": "six hours",
+   "measures": [
+    "standard",
+    "common-observer"
+   ],
+   "description": "The same agent and code as the system with GPT-5.5, with DeepSeek V4.1 Flash as the model.",
+   "reference": {
+    "key": "agolic",
+    "citation": "Agentic Planning for Symbolic Execution. arXiv 2608.06397, 2026.",
+    "doi": null,
+    "url": "https://arxiv.org/abs/2608.06397",
+    "status": "verified"
+   },
+   "see_also": [
+    {
+     "key": "klee",
+     "citation": "KLEE: Unassisted and Automatic Generation of High-Coverage Tests for Complex Systems Programs. 8th USENIX Symposium on Operating Systems Design and Implementation (OSDI 08), 2008.",
+     "url": "https://www.usenix.org/conference/osdi-08/klee-unassisted-and-automatic-generation-high-coverage-tests-complex-systems"
+    }
+   ],
+   "model_reference": {
+    "key": "deepseek-v4.1-flash",
+    "url": "https://api-docs.deepseek.com/news/news260910"
+   }
+  },
+  "agolic-direct-deepseek": {
+   "id": "agolic-direct-deepseek",
+   "variant": "Direct-Input",
+   "summary": "The agent plans whole concrete inputs; no symbolic execution.",
+   "family": "agent",
+   "backend": "direct-input",
+   "group": "main",
+   "track": "open",
+   "model": {
+    "key": "deepseek-v4.1-flash",
+    "name": "DeepSeek V4.1 Flash"
+   },
+   "cores": 6,
+   "budget_s": 21600,
+   "budget_text": "six hours",
+   "measures": [
+    "common-observer"
+   ],
+   "description": "The agent plans invocations that execute whole concrete inputs directly, with command-line arguments, standard input and files, up to 32 inputs per invocation. It keeps every input as a test. It uses no symbolic execution and no solver.",
+   "reference": {
+    "key": "agolic",
+    "citation": "Agentic Planning for Symbolic Execution. arXiv 2608.06397, 2026.",
+    "doi": null,
+    "url": "https://arxiv.org/abs/2608.06397",
+    "status": "verified"
+   },
+   "see_also": [],
+   "model_reference": {
+    "key": "deepseek-v4.1-flash",
+    "url": "https://api-docs.deepseek.com/news/news260910"
+   }
+  },
+  "agolic-aflpp-deepseek": {
+   "id": "agolic-aflpp-deepseek",
+   "variant": "AFL++",
+   "summary": "The agent plans AFL++ fuzzing runs.",
+   "family": "agent",
+   "backend": "aflplusplus",
+   "group": "main",
+   "track": "open",
+   "model": {
+    "key": "deepseek-v4.1-flash",
+    "name": "DeepSeek V4.1 Flash"
+   },
+   "cores": 6,
+   "budget_s": 21600,
+   "budget_text": "six hours",
+   "measures": [
+    "standard"
+   ],
+   "description": "The agent plans AFL++ invocations. It chooses the length of each, the input channel, the command-line arguments, the seeds and whether to continue from the queue of an earlier invocation.",
+   "reference": {
+    "key": "agolic",
+    "citation": "Agentic Planning for Symbolic Execution. arXiv 2608.06397, 2026.",
+    "doi": null,
+    "url": "https://arxiv.org/abs/2608.06397",
+    "status": "verified"
+   },
+   "see_also": [
+    {
+     "key": "aflpp",
+     "citation": "AFL++: Combining Incremental Steps of Fuzzing Research. 14th USENIX Workshop on Offensive Technologies (WOOT 20), 2020.",
+     "url": "https://www.usenix.org/conference/woot20/presentation/fioraldi"
+    }
+   ],
+   "model_reference": {
+    "key": "deepseek-v4.1-flash",
+    "url": "https://api-docs.deepseek.com/news/news260910"
+   }
+  },
+  "concollmic-gpt55": {
+   "id": "concollmic-gpt55",
+   "summary": "Concolic execution in which a language model does the reasoning.",
+   "family": "llm",
+   "backend": "concolic-loop",
+   "group": "main",
+   "track": "open",
+   "model": {
+    "key": "gpt-5.5",
+    "name": "GPT-5.5"
+   },
+   "cores": null,
+   "budget_s": 21600,
+   "budget_text": "six hours",
+   "measures": [
+    "standard"
+   ],
+   "description": "ConcoLLMic is a concolic executor in which a language model does the central reasoning. It follows concrete runs of the program and asks a language-model agent to model the conditions along each path, so it needs no hand-written symbolic model of the language or the environment. It then proposes inputs that reach other paths.",
+   "reference": {
+    "key": "concollmic",
+    "citation": "Agentic Concolic Execution. 2026 IEEE Symposium on Security and Privacy (SP), 2026.",
+    "doi": "10.1109/SP63933.2026.00003",
+    "url": "https://doi.org/10.1109/SP63933.2026.00003",
+    "status": "verified"
+   },
+   "see_also": [],
+   "model_reference": {
+    "key": "gpt-5.5",
+    "url": "https://developers.openai.com/api/docs/models/gpt-5.5"
+   },
+   "no_cores_text": "none fixed"
+  },
+  "concollmic-deepseek": {
+   "id": "concollmic-deepseek",
+   "summary": "ConcoLLMic with another model.",
+   "family": "llm",
+   "backend": "concolic-loop",
+   "group": "main",
+   "track": "open",
+   "model": {
+    "key": "deepseek-v4.1-flash",
+    "name": "DeepSeek V4.1 Flash"
+   },
+   "cores": null,
+   "budget_s": 21600,
+   "budget_text": "six hours",
+   "measures": [
+    "standard"
+   ],
+   "description": "ConcoLLMic with DeepSeek V4.1 Flash as the model.",
+   "reference": {
+    "key": "concollmic",
+    "citation": "Agentic Concolic Execution. 2026 IEEE Symposium on Security and Privacy (SP), 2026.",
+    "doi": "10.1109/SP63933.2026.00003",
+    "url": "https://doi.org/10.1109/SP63933.2026.00003",
+    "status": "verified"
+   },
+   "see_also": [],
+   "model_reference": {
+    "key": "deepseek-v4.1-flash",
+    "url": "https://api-docs.deepseek.com/news/news260910"
+   },
+   "no_cores_text": "none fixed"
+  },
+  "klee-fixed-6w": {
+   "id": "klee-fixed-6w",
+   "variant": "fixed options",
+   "summary": "KLEE with its default search and fixed options.",
+   "family": "symbolic",
+   "backend": "klee",
+   "group": "main",
+   "track": "open",
+   "model": null,
+   "cores": 6,
+   "budget_s": 21600,
+   "budget_text": "six hours",
+   "measures": [
+    "canonical"
+   ],
+   "description": "KLEE is a symbolic execution engine. It runs a program on symbolic inputs, explores its paths and asks a constraint solver for concrete inputs that reach them. This system uses KLEE's default search and fixed options.",
+   "reference": {
+    "key": "klee",
+    "citation": "KLEE: Unassisted and Automatic Generation of High-Coverage Tests for Complex Systems Programs. 8th USENIX Symposium on Operating Systems Design and Implementation (OSDI 08), 2008.",
+    "doi": null,
+    "url": "https://www.usenix.org/conference/osdi-08/klee-unassisted-and-automatic-generation-high-coverage-tests-complex-systems",
+    "status": "verified"
+   },
+   "see_also": []
+  },
+  "klee-uniform-6w": {
+   "id": "klee-uniform-6w",
+   "variant": "uniform options",
+   "summary": "KLEE with options sampled uniformly from SymTuner’s space.",
+   "family": "symbolic",
+   "backend": "klee",
+   "group": "main",
+   "track": "open",
+   "model": null,
+   "cores": 6,
+   "budget_s": 21600,
+   "budget_text": "six hours",
+   "measures": [
+    "canonical"
+   ],
+   "description": "KLEE with the options of each invocation sampled uniformly from SymTuner's parameter space.",
+   "reference": {
+    "key": "klee",
+    "citation": "KLEE: Unassisted and Automatic Generation of High-Coverage Tests for Complex Systems Programs. 8th USENIX Symposium on Operating Systems Design and Implementation (OSDI 08), 2008.",
+    "doi": null,
+    "url": "https://www.usenix.org/conference/osdi-08/klee-unassisted-and-automatic-generation-high-coverage-tests-complex-systems",
+    "status": "verified"
+   },
+   "see_also": [
+    {
+     "key": "symtuner",
+     "citation": "SymTuner: Maximizing the Power of Symbolic Execution by Adaptively Tuning External Parameters. Proceedings of the 44th International Conference on Software Engineering (ICSE 2022), 2022.",
+     "url": "https://doi.org/10.1145/3510003.3510185"
+    }
+   ]
+  },
+  "symtuner-6w": {
+   "id": "symtuner-6w",
+   "summary": "An independent tool that tunes KLEE’s options adaptively.",
+   "family": "symbolic",
+   "backend": "klee",
+   "group": "main",
+   "track": "open",
+   "model": null,
+   "cores": 6,
+   "budget_s": 21600,
+   "budget_text": "six hours",
+   "measures": [
+    "canonical"
+   ],
+   "description": "SymTuner is an independent tool that tunes KLEE's options adaptively. It observes how earlier invocations behaved and shifts how it samples the options for later ones. It was ported to the KLEE build of this study.",
+   "reference": {
+    "key": "symtuner",
+    "citation": "SymTuner: Maximizing the Power of Symbolic Execution by Adaptively Tuning External Parameters. Proceedings of the 44th International Conference on Software Engineering (ICSE 2022), 2022.",
+    "doi": "10.1145/3510003.3510185",
+    "url": "https://doi.org/10.1145/3510003.3510185",
+    "status": "verified"
+   },
+   "see_also": [
+    {
+     "key": "klee",
+     "citation": "KLEE: Unassisted and Automatic Generation of High-Coverage Tests for Complex Systems Programs. 8th USENIX Symposium on Operating Systems Design and Implementation (OSDI 08), 2008.",
+     "url": "https://www.usenix.org/conference/osdi-08/klee-unassisted-and-automatic-generation-high-coverage-tests-complex-systems"
+    }
+   ]
+  },
+  "aflpp": {
+   "id": "aflpp",
+   "summary": "A coverage-guided mutation fuzzer.",
+   "family": "fuzzer",
+   "backend": "aflplusplus",
+   "group": "main",
+   "track": "fixed",
+   "model": null,
+   "cores": 1,
+   "budget_s": 21600,
+   "budget_text": "six hours",
+   "measures": [
+    "canonical"
+   ],
+   "description": "AFL++ is a coverage-guided fuzzer. It mutates inputs, keeps those that reach new code, then mutates those again.",
+   "reference": {
+    "key": "aflpp",
+    "citation": "AFL++: Combining Incremental Steps of Fuzzing Research. 14th USENIX Workshop on Offensive Technologies (WOOT 20), 2020.",
+    "doi": null,
+    "url": "https://www.usenix.org/conference/woot20/presentation/fioraldi",
+    "status": "verified"
+   },
+   "see_also": []
+  },
+  "symcc-aflpp": {
+   "id": "symcc-aflpp",
+   "variant": "+ AFL++",
+   "summary": "SymCC, a compile-time concolic executor, paired with AFL++.",
+   "family": "hybrid",
+   "backend": "symcc+aflplusplus",
+   "group": "main",
+   "track": "fixed",
+   "model": null,
+   "cores": 1,
+   "budget_s": 21600,
+   "budget_text": "six hours",
+   "measures": [
+    "canonical"
+   ],
+   "description": "SymCC is a concolic executor that builds the symbolic reasoning into the program at compile time. Here it is paired with AFL++ as a hybrid.",
+   "reference": {
+    "key": "symcc",
+    "citation": "Symbolic execution with SymCC: Don't interpret, compile. 29th USENIX Security Symposium (USENIX Security 20), 2020.",
+    "doi": null,
+    "url": "https://www.usenix.org/conference/usenixsecurity20/presentation/poeplau",
+    "status": "verified"
+   },
+   "see_also": [
+    {
+     "key": "aflpp",
+     "citation": "AFL++: Combining Incremental Steps of Fuzzing Research. 14th USENIX Workshop on Offensive Technologies (WOOT 20), 2020.",
+     "url": "https://www.usenix.org/conference/woot20/presentation/fioraldi"
+    }
+   ]
+  },
+  "symsan-aflpp": {
+   "id": "symsan-aflpp",
+   "variant": "+ AFL++",
+   "summary": "SymSan, a data-flow concolic executor, paired with AFL++.",
+   "family": "hybrid",
+   "backend": "symsan+aflplusplus",
+   "group": "main",
+   "track": "fixed",
+   "model": null,
+   "cores": 1,
+   "budget_s": 21600,
+   "budget_text": "six hours",
+   "measures": [
+    "canonical"
+   ],
+   "description": "SymSan is a concolic executor built on LLVM's data-flow sanitiser; this build is a reconstruction from its source code. It is designed to reduce the time and memory spent on managing symbolic expressions. Here it is paired with AFL++ as a hybrid.",
+   "reference": {
+    "key": "symsan",
+    "citation": "SYMSAN: Time and Space Efficient Concolic Execution via Dynamic Data-flow Analysis. 31st USENIX Security Symposium (USENIX Security 22), 2022.",
+    "doi": null,
+    "url": "https://www.usenix.org/conference/usenixsecurity22/presentation/chen-ju",
+    "status": "verified"
+   },
+   "see_also": [
+    {
+     "key": "aflpp",
+     "citation": "AFL++: Combining Incremental Steps of Fuzzing Research. 14th USENIX Workshop on Offensive Technologies (WOOT 20), 2020.",
+     "url": "https://www.usenix.org/conference/woot20/presentation/fioraldi"
+    }
+   ]
+  },
+  "aflpp-rebuilt-control": {
+   "id": "aflpp-rebuilt-control",
+   "variant": "rebuilt targets",
+   "summary": "AFL++ without an agent, on the agent’s rebuilt targets.",
+   "family": "fuzzer",
+   "backend": "aflplusplus",
+   "group": "control",
+   "track": "fixed",
+   "model": null,
+   "cores": null,
+   "budget_s": 21600,
+   "budget_text": "six hours",
+   "measures": [
+    "standard"
+   ],
+   "description": "AFL++ without an agent, on the same rebuilt builds, seeds and dictionaries that the agent's AFL++ runs used. It is the control for those runs.",
+   "reference": {
+    "key": "aflpp",
+    "citation": "AFL++: Combining Incremental Steps of Fuzzing Research. 14th USENIX Workshop on Offensive Technologies (WOOT 20), 2020.",
+    "doi": null,
+    "url": "https://www.usenix.org/conference/woot20/presentation/fioraldi",
+    "status": "verified"
+   },
+   "see_also": []
+  },
+  "klee-fixed-1w": {
+   "id": "klee-fixed-1w",
+   "variant": "fixed options",
+   "summary": "KLEE with fixed options, as a control.",
+   "family": "symbolic",
+   "backend": "klee",
+   "group": "control",
+   "track": "open",
+   "model": null,
+   "cores": 1,
+   "budget_s": 21600,
+   "budget_text": "six hours",
+   "measures": [
+    "canonical",
+    "published"
+   ],
+   "description": "KLEE with fixed options, as in the main group's entry.",
+   "reference": {
+    "key": "klee",
+    "citation": "KLEE: Unassisted and Automatic Generation of High-Coverage Tests for Complex Systems Programs. 8th USENIX Symposium on Operating Systems Design and Implementation (OSDI 08), 2008.",
+    "doi": null,
+    "url": "https://www.usenix.org/conference/osdi-08/klee-unassisted-and-automatic-generation-high-coverage-tests-complex-systems",
+    "status": "verified"
+   },
+   "see_also": []
+  },
+  "klee-uniform-1w": {
+   "id": "klee-uniform-1w",
+   "variant": "uniform options",
+   "summary": "KLEE with uniform options, as a control.",
+   "family": "symbolic",
+   "backend": "klee",
+   "group": "control",
+   "track": "open",
+   "model": null,
+   "cores": 1,
+   "budget_s": 21600,
+   "budget_text": "six hours",
+   "measures": [
+    "canonical",
+    "published"
+   ],
+   "description": "KLEE with uniform options, sampled from SymTuner's parameter space, as in the main group's entry.",
+   "reference": {
+    "key": "klee",
+    "citation": "KLEE: Unassisted and Automatic Generation of High-Coverage Tests for Complex Systems Programs. 8th USENIX Symposium on Operating Systems Design and Implementation (OSDI 08), 2008.",
+    "doi": null,
+    "url": "https://www.usenix.org/conference/osdi-08/klee-unassisted-and-automatic-generation-high-coverage-tests-complex-systems",
+    "status": "verified"
+   },
+   "see_also": [
+    {
+     "key": "symtuner",
+     "citation": "SymTuner: Maximizing the Power of Symbolic Execution by Adaptively Tuning External Parameters. Proceedings of the 44th International Conference on Software Engineering (ICSE 2022), 2022.",
+     "url": "https://doi.org/10.1145/3510003.3510185"
+    }
+   ]
+  },
+  "symtuner-1w": {
+   "id": "symtuner-1w",
+   "summary": "SymTuner, as a control.",
+   "family": "symbolic",
+   "backend": "klee",
+   "group": "control",
+   "track": "open",
+   "model": null,
+   "cores": 1,
+   "budget_s": 21600,
+   "budget_text": "six hours",
+   "measures": [
+    "canonical",
+    "published"
+   ],
+   "description": "SymTuner, as in the main group's entry.",
+   "reference": {
+    "key": "symtuner",
+    "citation": "SymTuner: Maximizing the Power of Symbolic Execution by Adaptively Tuning External Parameters. Proceedings of the 44th International Conference on Software Engineering (ICSE 2022), 2022.",
+    "doi": "10.1145/3510003.3510185",
+    "url": "https://doi.org/10.1145/3510003.3510185",
+    "status": "verified"
+   },
+   "see_also": [
+    {
+     "key": "klee",
+     "citation": "KLEE: Unassisted and Automatic Generation of High-Coverage Tests for Complex Systems Programs. 8th USENIX Symposium on Operating Systems Design and Implementation (OSDI 08), 2008.",
+     "url": "https://www.usenix.org/conference/osdi-08/klee-unassisted-and-automatic-generation-high-coverage-tests-complex-systems"
+    }
+   ]
+  },
+  "agolic-klee-gpt54": {
+   "id": "agolic-klee-gpt54",
+   "variant": "KLEE",
+   "summary": "The agent with GPT-5.4, run on an earlier version of the code.",
+   "family": "agent",
+   "backend": "klee",
+   "group": "ablation",
+   "track": "open",
+   "model": {
+    "key": "gpt-5.4",
+    "name": "GPT-5.4"
+   },
+   "cores": 6,
+   "budget_s": 21600,
+   "budget_text": "six hours",
+   "measures": [
+    "common-observer"
+   ],
+   "description": "The agent plans with GPT-5.4. These campaigns were run before the GPT-5.5 campaigns, on an earlier version of the code, so the model and the code differ from the reference configuration.",
+   "reference": {
+    "key": "agolic",
+    "citation": "Agentic Planning for Symbolic Execution. arXiv 2608.06397, 2026.",
+    "doi": null,
+    "url": "https://arxiv.org/abs/2608.06397",
+    "status": "verified"
+   },
+   "see_also": [],
+   "model_reference": {
+    "key": "gpt-5.4",
+    "url": "https://developers.openai.com/api/docs/models/gpt-5.4"
+   }
+  },
+  "agolic-klee-gpt55-effort-low": {
+   "id": "agolic-klee-gpt55-effort-low",
+   "variant": "KLEE",
+   "setting": "effort low",
+   "summary": "The reference agent at low reasoning effort.",
+   "family": "agent",
+   "backend": "klee",
+   "group": "ablation",
+   "track": "open",
+   "model": {
+    "key": "gpt-5.5",
+    "name": "GPT-5.5"
+   },
+   "cores": 6,
+   "budget_s": 21600,
+   "budget_text": "six hours",
+   "measures": [
+    "common-observer"
+   ],
+   "description": "The reference configuration with the agent's reasoning effort set to low.",
+   "reference": {
+    "key": "agolic",
+    "citation": "Agentic Planning for Symbolic Execution. arXiv 2608.06397, 2026.",
+    "doi": null,
+    "url": "https://arxiv.org/abs/2608.06397",
+    "status": "verified"
+   },
+   "see_also": [],
+   "model_reference": {
+    "key": "gpt-5.5",
+    "url": "https://developers.openai.com/api/docs/models/gpt-5.5"
+   }
+  },
+  "agolic-klee-gpt55-effort-xhigh": {
+   "id": "agolic-klee-gpt55-effort-xhigh",
+   "variant": "KLEE",
+   "setting": "effort extra high",
+   "summary": "The reference agent at extra high reasoning effort.",
+   "family": "agent",
+   "backend": "klee",
+   "group": "ablation",
+   "track": "open",
+   "model": {
+    "key": "gpt-5.5",
+    "name": "GPT-5.5"
+   },
+   "cores": 6,
+   "budget_s": 21600,
+   "budget_text": "six hours",
+   "measures": [
+    "common-observer"
+   ],
+   "description": "The reference configuration with the agent's reasoning effort set to extra high.",
+   "reference": {
+    "key": "agolic",
+    "citation": "Agentic Planning for Symbolic Execution. arXiv 2608.06397, 2026.",
+    "doi": null,
+    "url": "https://arxiv.org/abs/2608.06397",
+    "status": "verified"
+   },
+   "see_also": [],
+   "model_reference": {
+    "key": "gpt-5.5",
+    "url": "https://developers.openai.com/api/docs/models/gpt-5.5"
+   }
+  },
+  "agolic-klee-gpt55-harness-entry-only": {
+   "id": "agolic-klee-gpt55-harness-entry-only",
+   "variant": "KLEE",
+   "setting": "Harness-Entry Mode only",
+   "summary": "Symbolic exploration starts only at the KLEE harness entry.",
+   "family": "agent",
+   "backend": "klee",
+   "group": "ablation",
+   "track": "open",
+   "model": {
+    "key": "gpt-5.5",
+    "name": "GPT-5.5"
+   },
+   "cores": 6,
+   "budget_s": 21600,
+   "budget_text": "six hours",
+   "measures": [
+    "common-observer"
+   ],
+   "description": "The agent may start symbolic exploration only at the entry of the KLEE harness, as an ordinary KLEE invocation does. The mode that runs a concrete seed up to a chosen start function (Seeded-Prefix Mode) is turned off.",
+   "reference": {
+    "key": "agolic",
+    "citation": "Agentic Planning for Symbolic Execution. arXiv 2608.06397, 2026.",
+    "doi": null,
+    "url": "https://arxiv.org/abs/2608.06397",
+    "status": "verified"
+   },
+   "see_also": [],
+   "model_reference": {
+    "key": "gpt-5.5",
+    "url": "https://developers.openai.com/api/docs/models/gpt-5.5"
+   }
+  },
+  "agolic-klee-gpt55-seeded-prefix-only": {
+   "id": "agolic-klee-gpt55-seeded-prefix-only",
+   "variant": "KLEE",
+   "setting": "Seeded-Prefix Mode only",
+   "summary": "Every invocation executes a concrete seed up to a start function.",
+   "family": "agent",
+   "backend": "klee",
+   "group": "ablation",
+   "track": "open",
+   "model": {
+    "key": "gpt-5.5",
+    "name": "GPT-5.5"
+   },
+   "cores": 6,
+   "budget_s": 21600,
+   "budget_text": "six hours",
+   "measures": [
+    "common-observer"
+   ],
+   "description": "The agent is limited to Seeded-Prefix Mode. Every planned invocation executes a concrete seed up to a start function and symbolic exploration begins there.",
+   "reference": {
+    "key": "agolic",
+    "citation": "Agentic Planning for Symbolic Execution. arXiv 2608.06397, 2026.",
+    "doi": null,
+    "url": "https://arxiv.org/abs/2608.06397",
+    "status": "verified"
+   },
+   "see_also": [],
+   "model_reference": {
+    "key": "gpt-5.5",
+    "url": "https://developers.openai.com/api/docs/models/gpt-5.5"
+   }
+  },
+  "agolic-klee-gpt55-seed-finder-off": {
+   "id": "agolic-klee-gpt55-seed-finder-off",
+   "variant": "KLEE",
+   "setting": "seed finder off",
+   "summary": "The web seed-finding agent is turned off.",
+   "family": "agent",
+   "backend": "klee",
+   "group": "ablation",
+   "track": "open",
+   "model": {
+    "key": "gpt-5.5",
+    "name": "GPT-5.5"
+   },
+   "cores": 6,
+   "budget_s": 21600,
+   "budget_text": "six hours",
+   "measures": [
+    "common-observer"
+   ],
+   "description": "The seed finder is turned off. The seed finder is a second agent that searches the web for example input files.",
+   "reference": {
+    "key": "agolic",
+    "citation": "Agentic Planning for Symbolic Execution. arXiv 2608.06397, 2026.",
+    "doi": null,
+    "url": "https://arxiv.org/abs/2608.06397",
+    "status": "verified"
+   },
+   "see_also": [],
+   "model_reference": {
+    "key": "gpt-5.5",
+    "url": "https://developers.openai.com/api/docs/models/gpt-5.5"
+   }
+  },
+  "agolic-klee-gpt55-proposal-review-off": {
+   "id": "agolic-klee-gpt55-proposal-review-off",
+   "variant": "KLEE",
+   "setting": "proposal review off",
+   "summary": "The review of planned invocations is turned off.",
+   "family": "agent",
+   "backend": "klee",
+   "group": "ablation",
+   "track": "open",
+   "model": {
+    "key": "gpt-5.5",
+    "name": "GPT-5.5"
+   },
+   "cores": 6,
+   "budget_s": 21600,
+   "budget_text": "six hours",
+   "measures": [
+    "common-observer"
+   ],
+   "description": "The review step that checks the agent's proposed invocation specifications before they are dispatched is turned off.",
+   "reference": {
+    "key": "agolic",
+    "citation": "Agentic Planning for Symbolic Execution. arXiv 2608.06397, 2026.",
+    "doi": null,
+    "url": "https://arxiv.org/abs/2608.06397",
+    "status": "verified"
+   },
+   "see_also": [],
+   "model_reference": {
+    "key": "gpt-5.5",
+    "url": "https://developers.openai.com/api/docs/models/gpt-5.5"
+   }
+  },
+  "agolic-klee-gpt55-history-withheld": {
+   "id": "agolic-klee-gpt55-history-withheld",
+   "variant": "KLEE",
+   "setting": "run history withheld",
+   "summary": "The agent does not see the earlier runs.",
+   "family": "agent",
+   "backend": "klee",
+   "group": "ablation",
+   "track": "open",
+   "model": {
+    "key": "gpt-5.5",
+    "name": "GPT-5.5"
+   },
+   "cores": 6,
+   "budget_s": 21600,
+   "budget_text": "six hours",
+   "measures": [
+    "common-observer"
+   ],
+   "description": "The record of earlier runs and their outcomes is withheld from the agent, so each plan is made without knowing what the previous runs reached.",
+   "reference": {
+    "key": "agolic",
+    "citation": "Agentic Planning for Symbolic Execution. arXiv 2608.06397, 2026.",
+    "doi": null,
+    "url": "https://arxiv.org/abs/2608.06397",
+    "status": "verified"
+   },
+   "see_also": [],
+   "model_reference": {
+    "key": "gpt-5.5",
+    "url": "https://developers.openai.com/api/docs/models/gpt-5.5"
+   }
+  },
+  "agolic-klee-deepseek-effort-low": {
+   "id": "agolic-klee-deepseek-effort-low",
+   "variant": "KLEE",
+   "setting": "effort low",
+   "summary": "The DeepSeek agent at low reasoning effort.",
+   "family": "agent",
+   "backend": "klee",
+   "group": "ablation",
+   "track": "open",
+   "model": {
+    "key": "deepseek-v4.1-flash",
+    "name": "DeepSeek V4.1 Flash"
+   },
+   "cores": 6,
+   "budget_s": 21600,
+   "budget_text": "six hours",
+   "measures": [
+    "common-observer"
+   ],
+   "description": "The DeepSeek configuration with the model's reasoning effort set to low.",
+   "reference": {
+    "key": "agolic",
+    "citation": "Agentic Planning for Symbolic Execution. arXiv 2608.06397, 2026.",
+    "doi": null,
+    "url": "https://arxiv.org/abs/2608.06397",
+    "status": "verified"
+   },
+   "see_also": [],
+   "model_reference": {
+    "key": "deepseek-v4.1-flash",
+    "url": "https://api-docs.deepseek.com/news/news260910"
+   }
+  },
+  "agolic-klee-deepseek-effort-high": {
+   "id": "agolic-klee-deepseek-effort-high",
+   "variant": "KLEE",
+   "setting": "effort high",
+   "summary": "The DeepSeek agent at high reasoning effort.",
+   "family": "agent",
+   "backend": "klee",
+   "group": "ablation",
+   "track": "open",
+   "model": {
+    "key": "deepseek-v4.1-flash",
+    "name": "DeepSeek V4.1 Flash"
+   },
+   "cores": 6,
+   "budget_s": 21600,
+   "budget_text": "six hours",
+   "measures": [
+    "common-observer"
+   ],
+   "description": "The DeepSeek configuration with the model's reasoning effort set to high.",
+   "reference": {
+    "key": "agolic",
+    "citation": "Agentic Planning for Symbolic Execution. arXiv 2608.06397, 2026.",
+    "doi": null,
+    "url": "https://arxiv.org/abs/2608.06397",
+    "status": "verified"
+   },
+   "see_also": [],
+   "model_reference": {
+    "key": "deepseek-v4.1-flash",
+    "url": "https://api-docs.deepseek.com/news/news260910"
+   }
+  },
+  "symtuner-6w-rerun": {
+   "id": "symtuner-6w-rerun",
+   "variant": "rerun",
+   "summary": "A second SymTuner run.",
+   "family": "symbolic",
+   "backend": "klee",
+   "group": "seeding",
+   "track": "open",
+   "model": null,
+   "cores": 6,
+   "budget_s": 21600,
+   "budget_text": "six hours",
+   "measures": [
+    "common-observer"
+   ],
+   "description": "A second run of SymTuner with the baseline's master seeds. The count is of the tests SymTuner kept.",
+   "reference": {
+    "key": "symtuner",
+    "citation": "SymTuner: Maximizing the Power of Symbolic Execution by Adaptively Tuning External Parameters. Proceedings of the 44th International Conference on Software Engineering (ICSE 2022), 2022.",
+    "doi": "10.1145/3510003.3510185",
+    "url": "https://doi.org/10.1145/3510003.3510185",
+    "status": "verified"
+   },
+   "see_also": []
+  },
+  "symtuner-6w-rerun-seeded-tests-only": {
+   "id": "symtuner-6w-rerun-seeded-tests-only",
+   "variant": "from the agent's seeds",
+   "setting": "its own tests",
+   "summary": "SymTuner started from the agent’s seeds; its own tests counted.",
+   "family": "symbolic",
+   "backend": "klee",
+   "group": "seeding",
+   "track": "open",
+   "model": null,
+   "cores": 6,
+   "budget_s": 21600,
+   "budget_text": "six hours",
+   "measures": [
+    "common-observer"
+   ],
+   "description": "SymTuner started from the seeds that an Agolic campaign with GPT-5.5 produced for the same program. Only the tests that SymTuner itself generated are counted.",
+   "reference": {
+    "key": "symtuner",
+    "citation": "SymTuner: Maximizing the Power of Symbolic Execution by Adaptively Tuning External Parameters. Proceedings of the 44th International Conference on Software Engineering (ICSE 2022), 2022.",
+    "doi": "10.1145/3510003.3510185",
+    "url": "https://doi.org/10.1145/3510003.3510185",
+    "status": "verified"
+   },
+   "see_also": [],
+   "uses_agent_seeds": true
+  },
+  "symtuner-6w-rerun-seeded-plus-seeds": {
+   "id": "symtuner-6w-rerun-seeded-plus-seeds",
+   "variant": "from the agent's seeds",
+   "setting": "tests plus seeds",
+   "summary": "The same runs, counting the seeds as well.",
+   "family": "symbolic",
+   "backend": "klee",
+   "group": "seeding",
+   "track": "open",
+   "model": null,
+   "cores": 6,
+   "budget_s": 21600,
+   "budget_text": "six hours",
+   "measures": [
+    "common-observer"
+   ],
+   "description": "The same runs as the previous system, counting the seeds themselves in addition to the tests SymTuner generated.",
+   "reference": {
+    "key": "symtuner",
+    "citation": "SymTuner: Maximizing the Power of Symbolic Execution by Adaptively Tuning External Parameters. Proceedings of the 44th International Conference on Software Engineering (ICSE 2022), 2022.",
+    "doi": "10.1145/3510003.3510185",
+    "url": "https://doi.org/10.1145/3510003.3510185",
+    "status": "verified"
+   },
+   "see_also": [],
+   "uses_agent_seeds": true
+  },
+  "symtuner-6w-rerun-seeded-seeds-only": {
+   "id": "symtuner-6w-rerun-seeded-seeds-only",
+   "variant": "seeds alone",
+   "summary": "The agent’s seeds replayed once on their own.",
+   "family": "other",
+   "backend": "klee",
+   "group": "seeding",
+   "track": "open",
+   "model": null,
+   "cores": null,
+   "budget_s": null,
+   "budget_text": null,
+   "measures": [
+    "common-observer"
+   ],
+   "description": "The seeds that an Agolic campaign with GPT-5.5 produced for the program, replayed once on their own with no SymTuner test. They are the seeds given to the SymTuner runs above.",
+   "reference": {
+    "key": "agolic",
+    "citation": "Agentic Planning for Symbolic Execution. arXiv 2608.06397, 2026.",
+    "doi": null,
+    "url": "https://arxiv.org/abs/2608.06397",
+    "status": "verified"
+   },
+   "see_also": [
+    {
+     "key": "symtuner",
+     "citation": "SymTuner: Maximizing the Power of Symbolic Execution by Adaptively Tuning External Parameters. Proceedings of the 44th International Conference on Software Engineering (ICSE 2022), 2022.",
+     "url": "https://doi.org/10.1145/3510003.3510185"
+    }
+   ],
+   "uses_agent_seeds": true,
+   "backend_text": "None (seeds replayed alone)",
+   "no_cores_text": "none (replayed once)",
+   "no_budget_text": "none (replayed once)"
+  }
+ }
+}

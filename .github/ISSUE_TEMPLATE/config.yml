@@ -1,0 +1,12 @@
+# Issue chooser for the agent-software-testing-site repository.
+blank_issues_enabled: false
+contact_links:
+  - name: A number on the site is wrong
+    url: https://github.com/agentic-prover/agent-software-testing-results/issues/new/choose
+    about: The site shows the data of a results release and adds no numbers of its own. Wrong or mislabelled data goes to the agent-software-testing-results repository (Data issue).
+  - name: Problem with the runner, the specification or a program definition
+    url: https://github.com/agentic-prover/agent-software-testing/issues/new/choose
+    about: The standard is in the agent-software-testing repository.
+  - name: Report a security vulnerability (private)
+    url: https://github.com/agentic-prover/agent-software-testing/security/advisories/new
+    about: For example a script injection through a tool name on a page. Do not open a public issue. See SECURITY.md in the agent-software-testing repository.

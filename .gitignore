@@ -1,0 +1,6 @@
+dist/
+shots/
+.chrome-profile/
+__pycache__/
+.pytest_cache/
+*.pyc

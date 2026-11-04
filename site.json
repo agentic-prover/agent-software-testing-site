@@ -1,0 +1,30 @@
+{
+  "site_name": "Agent Software Testing",
+  "title_suffix": "Agent Software Testing",
+  "description": "Branch coverage of test generators on open-source programs, every run replayed the same way.",
+  "site_url": "https://agent-software-testing.aprover.ai/",
+  "org_url": "https://github.com/agentic-prover",
+  "runner_repo_url": "https://github.com/agentic-prover/agent-software-testing",
+  "results_repo_url": "https://github.com/agentic-prover/agent-software-testing-results",
+  "site_repo_url": "https://github.com/agentic-prover/agent-software-testing-site",
+  "sibling_sites": [
+    {
+      "name": "Agolic",
+      "url": "https://agolic.aprover.ai/"
+    }
+  ],
+  "base_url": "/",
+  "noindex": false,
+  "fonts": "self",
+  "release_ref": "v0.1.0",
+  "footer_links": [
+    {
+      "name": "OASIS @ MBZUAI",
+      "url": "https://oasis-mbzuai.github.io/"
+    },
+    {
+      "name": "aprover.ai",
+      "url": "https://www.aprover.ai/"
+    }
+  ]
+}

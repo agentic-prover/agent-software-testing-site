@@ -1,0 +1,77 @@
+name: Site issue
+description: Something on the website is wrong, broken, hard to use or hard to read.
+title: "Site: "
+labels: ["site"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for telling us. A wrong or mislabelled **number or label that comes from the data** (for example a median or
+        a system description) belongs in the `agent-software-testing-results` repository as a Data issue; the site only displays
+        the data. A way to inject script or markup into a page through a name or label is a **security problem**; report it
+        privately (see `SECURITY.md` of the `agent-software-testing` repository).
+  - type: input
+    id: page
+    attributes:
+      label: Page
+      description: The address or the path of the page, including the `#` part if the problem is in one section or view.
+      placeholder: "programs/gzip.html#coverage"
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of problem
+      options:
+        - Content is wrong, unclear or misleading
+        - A link is broken or a file is missing
+        - A chart or table shows something that does not match the data
+        - Layout or visual problem
+        - Accessibility (keyboard, screen reader, contrast, colour)
+        - Dark mode or light mode
+        - Phone or narrow screen
+        - Build or check script
+        - Suggestion
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What you saw
+      description: Paste a screenshot if it helps (drag it into this box).
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Browser and device
+      description: |
+        Browser and version, operating system, screen or window width, light or dark theme (and whether you used the
+        theme toggle), whether JavaScript is enabled, and whether you use a screen reader or keyboard only.
+      render: text
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: What did you click, select or type? Charts keep their state in the address; paste the full address if it applies.
+  - type: input
+    id: build
+    attributes:
+      label: Release or commit of the site
+      description: The version label in the footer of the page, or the commit you built, if you built it yourself.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I searched the existing issues.
+          required: true
+        - label: This is not a wrong number or label in the data (those go to agent-software-testing-results) and not a security problem.
+          required: true

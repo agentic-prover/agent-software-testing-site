@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<meta name="apple-mobile-web-app-title" content="Agent Software Testing">
+<meta name="theme-color" content="#ffffff">
+<script>try{if(localStorage.getItem("theme")==="dark"){document.documentElement.setAttribute("data-theme","dark");document.querySelector('meta[name="theme-color"]').content="#0e1625"}}catch(e){}</script>
+<title>Method | Agent Software Testing</title>
+<meta name="description" content="What is measured, how runs are summarised and what the numbers cannot show.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Agent Software Testing">
+<meta property="og:title" content="Method | Agent Software Testing">
+<meta property="og:description" content="What is measured, how runs are summarised and what the numbers cannot show.">
+<meta property="og:url" content="https://agent-software-testing.aprover.ai/method.html">
+<link rel="canonical" href="https://agent-software-testing.aprover.ai/method.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Method | Agent Software Testing">
+<meta name="twitter:description" content="What is measured, how runs are summarised and what the numbers cannot show.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" sizes="any">
+<link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="assets/favicon-16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/funnel-display-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/site.f18a24c247.css">
+<link rel="stylesheet" href="assets/prose.7e2e3a625f.css">
+
+<noscript><style>.gpanel[hidden],.detail[hidden],tr[hidden]{display:revert!important}.gp-title{position:static!important;width:auto!important;height:auto!important;margin:24px 0 8px!important;clip:auto!important;clip-path:none!important;overflow:visible!important}.js-only{display:none!important}.mapbox{min-height:0!important}.chart-host{height:auto!important}</style></noscript>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar"><div class="topbar-in">
+<a class="brand" href="index.html" aria-label="Agent Software Testing, home"><svg class="mark" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false"><path d="M11.1 11.87A5 5 0 1 1 7 4H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 4L12.8 6.6M9 4L11.17 2.66" stroke="currentColor" stroke-width="1.2"/><circle cx="12.4" cy="1.9" r="1.7" fill="var(--reached)"/><circle cx="14" cy="7.4" r="1.5" stroke="currentColor" stroke-width="1.1"/></svg><span><b>Agent</b> Software Testing</span></a>
+<nav class="nav fade-x" aria-label="Main"><a href="results.html">Results</a><a href="tools.html">Tools</a><a href="compare.html">Compare</a><a href="method.html" aria-current="page">Method</a><a href="contribute.html">Contribute</a></nav>
+<nav class="sites" aria-label="Other sites"><a href="https://agolic.aprover.ai/">Agolic</a></nav>
+<div class="topbar-tools">
+<button class="btn btn-search js-only" type="button" data-open-palette aria-label="Search programs and tools" aria-keyshortcuts="Control+K Meta+K"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg><span class="lbl">Search</span></button><button class="btn btn-theme js-only" type="button" data-theme-toggle aria-label="Switch between light and dark"><svg class="i-moon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13.2 9.6A5.6 5.6 0 0 1 6.4 2.8a5.6 5.6 0 1 0 6.8 6.8Z"/></svg><svg class="i-sun" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="3"/><path d="M8 1.5v1.5M8 13v1.5M1.5 8H3M13 8h1.5M3.4 3.4l1 1M11.6 11.6l1 1M3.4 12.6l1-1M11.6 4.4l1-1"/></svg></button></div></div></header>
+<main id="main" class="shell no-js" data-page="doc" data-root="" tabindex="-1">
+<script>document.getElementById("main").classList.remove("no-js")</script>
+<div class="page-head"><h1>Method</h1></div>
+<div class="doc doc-solo"><article class="prose"><dl class="defs facts">
+<div id="coverage"><dt>Coverage</dt><dd>Each tool’s test cases are replayed and counted on the branches of one pinned gcov build per program. Every replay runs in a container that sees only its own processes.</dd></div>
+<div id="runs"><dt>Runs</dt><dd>† marks fewer than three runs. A run lasts six hours by default (other budgets labelled). Tables show medians.</dd></div>
+<div id="tracks"><dt>Tracks</dt><dd>On the fixed track the tool supplies only the input to a fixed command line; on the open track it also chooses arguments, files and environment. Results on different tracks do not compare; budgets and cores change what a result means.</dd></div>
+<div id="statistics"><dt>Statistics</dt><dd>A12 follows section 9 of SPEC.md.</dd></div>
+<div id="limits"><dt>Limits</dt><dd>A crash or timeout writes no coverage. A model may have seen the programs. Of 28 entries, 14 are variants of the maintainers’ agent, Agolic. One more starts from its seeds. The maintainers ran, configured or ported every baseline. Budgets, cores and tokens are self-reported. Coverage counts the branches that test cases reach. A sanitiser signature is an untriaged report.</dd></div>
+<div id="standard"><dt>Specification</dt><dd>SPEC.md in the <a href="https://github.com/agentic-prover/agent-software-testing" rel="noopener"><code>agent-software-testing</code></a> repository defines the replay and governs where this page differs.</dd></div>
+</dl>
+</article></div>
+</main>
+<footer class="foot"><div class="foot-in"><p><a href="https://oasis-mbzuai.github.io/" rel="noopener">OASIS @ MBZUAI</a> · <a href="https://www.aprover.ai/" rel="noopener">aprover.ai</a></p></div></footer>
+<div id="live" class="sr" role="status" aria-live="polite"></div>
+<dialog class="pal" id="pal" aria-label="Search programs and tools">
+<input id="pal-in" type="text" role="combobox" aria-expanded="false" aria-controls="pal-list" aria-autocomplete="list" autocomplete="off" spellcheck="false" placeholder="Search programs and tools" aria-label="Search programs and tools">
+<ul id="pal-list" role="listbox" aria-label="Matches"></ul>
+<div class="sr" id="pal-status" role="status" aria-live="polite"></div>
+<div class="pal-foot"><button class="btn pal-close" type="button" data-close-palette>Close</button></div>
+</dialog>
+<script src="assets/index.cbd4729586.js" defer></script>
+<script src="assets/app.42c6e7e01c.js" defer></script>
+</body>
+</html>

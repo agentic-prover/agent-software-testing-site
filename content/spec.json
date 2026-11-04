@@ -1,0 +1,22 @@
+{
+  "schema": "agent-software-testing/site-spec@0.1",
+  "image": "Ubuntu 22.04",
+  "coverage_compiler": "gcc and gcov 11.4",
+  "lcov": "1.14",
+  "coverage_flags": "-O0 --coverage",
+  "sanitiser_compiler": "clang 15",
+  "interval_s": 900,
+  "time_limit_default_s": 30,
+  "time_limit_max_s": 30,
+  "max_files_per_case": 64,
+  "max_case_mib": 16,
+  "max_cases_per_bundle": 1000000,
+  "min_repeats": 3,
+  "standard_budget_h": 6,
+  "disclosure_days": 90,
+  "flake_branches_hint": 10,
+  "term_grace_s": 2,
+  "spec_version": "0.1 (draft)",
+  "acceptance_full": 1,
+  "built_programs": 3
+}

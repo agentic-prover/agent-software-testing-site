@@ -1,0 +1,125 @@
+{
+ "schema": "agent-software-testing/site-styles@0.1",
+ "systems": {
+  "agolic-klee-gpt55": {
+   "short": "Agolic KLEE",
+   "sub": "GPT-5.5"
+  },
+  "agolic-klee-deepseek": {
+   "short": "Agolic KLEE",
+   "sub": "DeepSeek V4.1 Flash"
+  },
+  "agolic-direct-deepseek": {
+   "short": "Agolic Direct-Input",
+   "sub": "DeepSeek V4.1 Flash"
+  },
+  "agolic-aflpp-deepseek": {
+   "short": "Agolic AFL++",
+   "sub": "DeepSeek V4.1 Flash"
+  },
+  "concollmic-gpt55": {
+   "short": "ConcoLLMic",
+   "sub": "GPT-5.5"
+  },
+  "concollmic-deepseek": {
+   "short": "ConcoLLMic",
+   "sub": "DeepSeek V4.1 Flash"
+  },
+  "klee-fixed-6w": {
+   "short": "KLEE, fixed options",
+   "sub": "6 cores"
+  },
+  "klee-uniform-6w": {
+   "short": "KLEE, uniform options",
+   "sub": "6 cores"
+  },
+  "symtuner-6w": {
+   "short": "SymTuner",
+   "sub": "6 cores"
+  },
+  "aflpp": {
+   "short": "AFL++",
+   "sub": "1 core"
+  },
+  "symcc-aflpp": {
+   "short": "SymCC + AFL++",
+   "sub": "1 core"
+  },
+  "symsan-aflpp": {
+   "short": "SymSan + AFL++",
+   "sub": "1 core"
+  },
+  "aflpp-rebuilt-control": {
+   "short": "AFL++",
+   "sub": "rebuilt targets"
+  },
+  "klee-fixed-1w": {
+   "short": "KLEE, fixed options",
+   "sub": "1 core"
+  },
+  "klee-uniform-1w": {
+   "short": "KLEE, uniform options",
+   "sub": "1 core"
+  },
+  "symtuner-1w": {
+   "short": "SymTuner",
+   "sub": "1 core"
+  },
+  "agolic-klee-gpt54": {
+   "short": "Agolic KLEE",
+   "sub": "GPT-5.4"
+  },
+  "agolic-klee-gpt55-effort-low": {
+   "short": "Agolic KLEE",
+   "sub": "GPT-5.5, effort low"
+  },
+  "agolic-klee-gpt55-effort-xhigh": {
+   "short": "Agolic KLEE",
+   "sub": "GPT-5.5, effort extra high"
+  },
+  "agolic-klee-gpt55-harness-entry-only": {
+   "short": "Agolic KLEE",
+   "sub": "GPT-5.5, Harness-Entry Mode only"
+  },
+  "agolic-klee-gpt55-seeded-prefix-only": {
+   "short": "Agolic KLEE",
+   "sub": "GPT-5.5, Seeded-Prefix Mode only"
+  },
+  "agolic-klee-gpt55-seed-finder-off": {
+   "short": "Agolic KLEE",
+   "sub": "GPT-5.5, seed finder off"
+  },
+  "agolic-klee-gpt55-proposal-review-off": {
+   "short": "Agolic KLEE",
+   "sub": "GPT-5.5, proposal review off"
+  },
+  "agolic-klee-gpt55-history-withheld": {
+   "short": "Agolic KLEE",
+   "sub": "GPT-5.5, run history withheld"
+  },
+  "agolic-klee-deepseek-effort-low": {
+   "short": "Agolic KLEE",
+   "sub": "DeepSeek V4.1 Flash, effort low"
+  },
+  "agolic-klee-deepseek-effort-high": {
+   "short": "Agolic KLEE",
+   "sub": "DeepSeek V4.1 Flash, effort high"
+  },
+  "symtuner-6w-rerun": {
+   "short": "SymTuner rerun",
+   "sub": "6 cores"
+  },
+  "symtuner-6w-rerun-seeded-tests-only": {
+   "short": "SymTuner from the agent's seeds",
+   "sub": "its own tests"
+  },
+  "symtuner-6w-rerun-seeded-plus-seeds": {
+   "short": "SymTuner from the agent's seeds",
+   "sub": "tests plus seeds"
+  },
+  "symtuner-6w-rerun-seeded-seeds-only": {
+   "short": "The agent's seeds alone",
+   "sub": "no SymTuner tests"
+  }
+ }
+}

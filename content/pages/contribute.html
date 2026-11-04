@@ -1,0 +1,25 @@
+<h2 id="submit">Submit results</h2>
+<p>A submission is a set of test cases. The maintainers approve each one by hand, which can take a few working days, then replay it on each program’s pinned build. {{submitting_md}} has the steps and commands.</p>
+<ol>
+<li><b>Run the tool.</b> Choose any programs; each needs {{min_repeats_word}} runs, {{budget_hours_word}} hours by default. Keep every test case and its time. No&nbsp;fee.</li>
+<li><b>Convert and validate.</b> An adapter turns each run into a bundle and <code>python -m agent_software_testing validate</code> checks it.</li>
+<li><b>Check for crashes.</b> Run <code>python -m agent_software_testing signatures</code> on each bundle. If it reports any, restrict that program’s archive or leave out the crashing cases until the disclosure period is over.</li>
+<li><b>Deposit the bundles.</b> Each goes to a permanent archive that issues a DOI, such as <a href="https://zenodo.org" rel="noopener">Zenodo</a>, with its SHA-256.</li>
+<li><b>Open a pull request.</b> It adds one file, <code>submissions/&lt;system_id&gt;.json</code>, to {{results_repo}}. The file names the tool, track, budget, model, bundle DOIs and hashes and gives your consent to publish under {{licence_data_text}}.</li>
+</ol>
+
+<h2 id="propose">Propose a program</h2>
+<p>The {{program_form}} asks for the program and version, the source archive and its SHA-256, an OSI-approved licence, the input surfaces and a build recipe. {{proposing_md}} has the conditions.</p>
+
+<h2 id="report">Report a problem</h2>
+<div class="tbl-wrap" tabindex="0" role="region" aria-label="Where to report a problem, by kind"><table class="tbl recs nolab"><caption class="sr">Where to report a problem, by kind</caption><thead><tr><th scope="col">What is wrong</th><th scope="col">Where to report it</th></tr></thead><tbody>
+<tr><th scope="row">The runner, validator, adapters or specification</th><td class="stk" data-label="Where to report it">The {{bug_form}}. Changes to the specification go through the {{spec_change_form}}.</td></tr>
+<tr><th scope="row">A wrong or mislabelled number</th><td class="stk" data-label="Where to report it">The {{data_form}}. The correction goes into the next release.</td></tr>
+<tr><th scope="row">A security problem in the runner</th><td class="stk" data-label="Where to report it">A private report, as {{security_md}} describes.</td></tr>
+<tr><th scope="row">A bug in one of the {{programs}} programs</th><td class="stk" data-label="Where to report it">The project’s maintainers through its own reporting channel, under the disclosure policy below.</td></tr>
+<tr><th scope="row">The website</th><td class="stk" data-label="Where to report it">The {{site_form}}.</td></tr>
+</tbody></table></div>
+
+<h2 id="disclosure">Disclosure policy</h2>
+<p>Error kinds and counts of sanitiser findings are published for every program. Locations, stack traces and inputs of bugs not yet fixed upstream stay unpublished. Each count is of untriaged signatures.</p>
+<p>A finding that looks like a real bug is reported to the project’s maintainers through its own reporting channel. Details may become public with the fix or {{disclosure_days}} days after that report and the maintainers may then credit the finders. Submitters do not publish details of an unfixed bug. Crashing inputs go in a restricted record or stay out. {{disclosure_md}} has the full policy.</p>

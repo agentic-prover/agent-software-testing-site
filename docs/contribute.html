@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<meta name="apple-mobile-web-app-title" content="Agent Software Testing">
+<meta name="theme-color" content="#ffffff">
+<script>try{if(localStorage.getItem("theme")==="dark"){document.documentElement.setAttribute("data-theme","dark");document.querySelector('meta[name="theme-color"]').content="#0e1625"}}catch(e){}</script>
+<title>Contribute | Agent Software Testing</title>
+<meta name="description" content="Submit results, propose a program, report a problem and read the disclosure policy.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Agent Software Testing">
+<meta property="og:title" content="Contribute | Agent Software Testing">
+<meta property="og:description" content="Submit results, propose a program, report a problem and read the disclosure policy.">
+<meta property="og:url" content="https://agent-software-testing.aprover.ai/contribute.html">
+<link rel="canonical" href="https://agent-software-testing.aprover.ai/contribute.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Contribute | Agent Software Testing">
+<meta name="twitter:description" content="Submit results, propose a program, report a problem and read the disclosure policy.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" sizes="any">
+<link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="assets/favicon-16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/funnel-display-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/site.f18a24c247.css">
+<link rel="stylesheet" href="assets/prose.7e2e3a625f.css">
+
+<noscript><style>.gpanel[hidden],.detail[hidden],tr[hidden]{display:revert!important}.gp-title{position:static!important;width:auto!important;height:auto!important;margin:24px 0 8px!important;clip:auto!important;clip-path:none!important;overflow:visible!important}.js-only{display:none!important}.mapbox{min-height:0!important}.chart-host{height:auto!important}</style></noscript>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar"><div class="topbar-in">
+<a class="brand" href="index.html" aria-label="Agent Software Testing, home"><svg class="mark" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false"><path d="M11.1 11.87A5 5 0 1 1 7 4H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 4L12.8 6.6M9 4L11.17 2.66" stroke="currentColor" stroke-width="1.2"/><circle cx="12.4" cy="1.9" r="1.7" fill="var(--reached)"/><circle cx="14" cy="7.4" r="1.5" stroke="currentColor" stroke-width="1.1"/></svg><span><b>Agent</b> Software Testing</span></a>
+<nav class="nav fade-x" aria-label="Main"><a href="results.html">Results</a><a href="tools.html">Tools</a><a href="compare.html">Compare</a><a href="method.html">Method</a><a href="contribute.html" aria-current="page">Contribute</a></nav>
+<nav class="sites" aria-label="Other sites"><a href="https://agolic.aprover.ai/">Agolic</a></nav>
+<div class="topbar-tools">
+<button class="btn btn-search js-only" type="button" data-open-palette aria-label="Search programs and tools" aria-keyshortcuts="Control+K Meta+K"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg><span class="lbl">Search</span></button><button class="btn btn-theme js-only" type="button" data-theme-toggle aria-label="Switch between light and dark"><svg class="i-moon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13.2 9.6A5.6 5.6 0 0 1 6.4 2.8a5.6 5.6 0 1 0 6.8 6.8Z"/></svg><svg class="i-sun" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="3"/><path d="M8 1.5v1.5M8 13v1.5M1.5 8H3M13 8h1.5M3.4 3.4l1 1M11.6 11.6l1 1M3.4 12.6l1-1M11.6 4.4l1-1"/></svg></button></div></div></header>
+<main id="main" class="shell no-js" data-page="doc" data-root="" tabindex="-1">
+<script>document.getElementById("main").classList.remove("no-js")</script>
+<div class="page-head"><h1>Contribute</h1><p class="lede lede-sm lede-wide">For authors of a test generator who want it measured beside these tools without building baselines.</p></div>
+<div class="doc"><nav class="toc fade-x" aria-label="On this page"><ol><li><a href="#submit">Submit results</a></li><li><a href="#propose">Propose a program</a></li><li><a href="#report">Report a problem</a></li><li><a href="#disclosure">Disclosure policy</a></li></ol></nav><article class="prose"><h2 id="submit">Submit results</h2>
+<p>A submission is a set of test cases. The maintainers approve each one by hand, which can take a few working days, then replay it on each program’s pinned build. <a href="https://github.com/agentic-prover/agent-software-testing-results/blob/v0.1.0/docs/SUBMITTING.md" rel="noopener"><code>SUBMITTING.md</code></a> has the steps and commands.</p>
+<ol>
+<li><b>Run the tool.</b> Choose any programs; each needs three runs, six hours by default. Keep every test case and its time. No&nbsp;fee.</li>
+<li><b>Convert and validate.</b> An adapter turns each run into a bundle and <code>python -m agent_software_testing validate</code> checks it.</li>
+<li><b>Check for crashes.</b> Run <code>python -m agent_software_testing signatures</code> on each bundle. If it reports any, restrict that program’s archive or leave out the crashing cases until the disclosure period is over.</li>
+<li><b>Deposit the bundles.</b> Each goes to a permanent archive that issues a DOI, such as <a href="https://zenodo.org" rel="noopener">Zenodo</a>, with its SHA-256.</li>
+<li><b>Open a pull request.</b> It adds one file, <code>submissions/&lt;system_id&gt;.json</code>, to <a href="https://github.com/agentic-prover/agent-software-testing-results" rel="noopener"><code>agent-software-testing-results</code></a>. The file names the tool, track, budget, model, bundle DOIs and hashes and gives your consent to publish under CC BY 4.0.</li>
+</ol>
+
+<h2 id="propose">Propose a program</h2>
+<p>The <a href="https://github.com/agentic-prover/agent-software-testing/issues/new?template=program-proposal.yml" rel="noopener">program proposal form</a> asks for the program and version, the source archive and its SHA-256, an OSI-approved licence, the input surfaces and a build recipe. <a href="https://github.com/agentic-prover/agent-software-testing/blob/HEAD/docs/PROPOSING-A-PROGRAM.md" rel="noopener"><code>PROPOSING-A-PROGRAM.md</code></a> has the conditions.</p>
+
+<h2 id="report">Report a problem</h2>
+<div class="tbl-wrap" tabindex="0" role="region" aria-label="Where to report a problem, by kind"><table class="tbl recs nolab"><caption class="sr">Where to report a problem, by kind</caption><thead><tr><th scope="col">What is wrong</th><th scope="col">Where to report it</th></tr></thead><tbody>
+<tr><th scope="row">The runner, validator, adapters or specification</th><td class="stk" data-label="Where to report it">The <a href="https://github.com/agentic-prover/agent-software-testing/issues/new?template=bug.yml" rel="noopener">bug form</a>. Changes to the specification go through the <a href="https://github.com/agentic-prover/agent-software-testing/issues/new?template=spec-change.yml" rel="noopener">specification change form</a>.</td></tr>
+<tr><th scope="row">A wrong or mislabelled number</th><td class="stk" data-label="Where to report it">The <a href="https://github.com/agentic-prover/agent-software-testing-results/issues/new?template=data-issue.yml" rel="noopener">data form</a>. The correction goes into the next release.</td></tr>
+<tr><th scope="row">A security problem in the runner</th><td class="stk" data-label="Where to report it">A private report, as <a href="https://github.com/agentic-prover/agent-software-testing/blob/HEAD/SECURITY.md" rel="noopener"><code>SECURITY.md</code></a> describes.</td></tr>
+<tr><th scope="row">A bug in one of the 18 programs</th><td class="stk" data-label="Where to report it">The project’s maintainers through its own reporting channel, under the disclosure policy below.</td></tr>
+<tr><th scope="row">The website</th><td class="stk" data-label="Where to report it">The <a href="https://github.com/agentic-prover/agent-software-testing-site/issues/new?template=site-issue.yml" rel="noopener">website form</a>.</td></tr>
+</tbody></table></div>
+
+<h2 id="disclosure">Disclosure policy</h2>
+<p>Error kinds and counts of sanitiser findings are published for every program. Locations, stack traces and inputs of bugs not yet fixed upstream stay unpublished. Each count is of untriaged signatures.</p>
+<p>A finding that looks like a real bug is reported to the project’s maintainers through its own reporting channel. Details may become public with the fix or 90 days after that report and the maintainers may then credit the finders. Submitters do not publish details of an unfixed bug. Crashing inputs go in a restricted record or stay out. <a href="https://github.com/agentic-prover/agent-software-testing-results/blob/v0.1.0/DISCLOSURE.md" rel="noopener"><code>DISCLOSURE.md</code></a> has the full policy.</p>
+</article></div>
+</main>
+<footer class="foot"><div class="foot-in"><p><a href="https://oasis-mbzuai.github.io/" rel="noopener">OASIS @ MBZUAI</a> · <a href="https://www.aprover.ai/" rel="noopener">aprover.ai</a></p></div></footer>
+<div id="live" class="sr" role="status" aria-live="polite"></div>
+<dialog class="pal" id="pal" aria-label="Search programs and tools">
+<input id="pal-in" type="text" role="combobox" aria-expanded="false" aria-controls="pal-list" aria-autocomplete="list" autocomplete="off" spellcheck="false" placeholder="Search programs and tools" aria-label="Search programs and tools">
+<ul id="pal-list" role="listbox" aria-label="Matches"></ul>
+<div class="sr" id="pal-status" role="status" aria-live="polite"></div>
+<div class="pal-foot"><button class="btn pal-close" type="button" data-close-palette>Close</button></div>
+</dialog>
+<script src="assets/index.cbd4729586.js" defer></script>
+<script src="assets/app.42c6e7e01c.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,368 @@
+{
+ "schema": "agent-software-testing/site-programs@0.1",
+ "release": "0.1.0",
+ "programs": {
+  "bc": {
+   "id": "bc",
+   "name": "bc",
+   "version": "1.08.2",
+   "language": "C",
+   "description": "GNU bc is a calculator language with arbitrary-precision numbers and a syntax similar to C.",
+   "inputs": [
+    "argv",
+    "files",
+    "stdin",
+    "env"
+   ],
+   "fixed_track": null,
+   "branch_total": 1922,
+   "upstream": {
+    "source_url": "https://ftp.gnu.org/gnu/bc/bc-1.08.2.tar.gz",
+    "source_sha256": "ae470fec429775653e042015edc928d07c8c3b2fc59765172a330d3d87785f86",
+    "homepage": "https://www.gnu.org/software/bc/",
+    "docs_url": "https://www.gnu.org/software/bc/manual/html_mono/bc.html"
+   }
+  },
+  "confetti": {
+   "id": "confetti",
+   "name": "Confetti",
+   "version": "1.0.0-beta.4",
+   "language": "C",
+   "description": "Confetti is a configuration-file language and a parser library written in C. The replay uses the parse example of the library, which reads a configuration file from standard input.",
+   "inputs": [
+    "stdin"
+   ],
+   "fixed_track": "stdin",
+   "branch_total": 632,
+   "upstream": {
+    "source_url": "https://github.com/hgs3/confetti/releases/download/v1.0.0-beta.4/confetti-1.0.0-beta.4.tar.gz",
+    "source_sha256": "acdfdac1875cf2036f2cad57b15b0a17b3b0b2dd5ae2c606d1a37a720b0da589",
+    "homepage": "https://github.com/hgs3/confetti",
+    "docs_url": "https://github.com/hgs3/confetti"
+   }
+  },
+  "diff": {
+   "id": "diff",
+   "name": "diff",
+   "version": "3.12",
+   "language": "C",
+   "description": "GNU diff compares two files or the matching files in two directories line by line and prints the differences.",
+   "inputs": [
+    "argv",
+    "files",
+    "stdin",
+    "env"
+   ],
+   "fixed_track": null,
+   "branch_total": 4369,
+   "upstream": {
+    "source_url": "https://ftp.gnu.org/gnu/diffutils/diffutils-3.12.tar.xz",
+    "source_sha256": "7c8b7f9fc8609141fdea9cece85249d308624391ff61dedaf528fcb337727dfd",
+    "homepage": "https://www.gnu.org/software/diffutils/",
+    "docs_url": "https://www.gnu.org/software/diffutils/manual/html_node/diff-Options.html"
+   }
+  },
+  "du": {
+   "id": "du",
+   "name": "du",
+   "version": "9.11",
+   "language": "C",
+   "description": "GNU du estimates how much disk space files and directory trees use.",
+   "inputs": [
+    "argv",
+    "files",
+    "stdin",
+    "env"
+   ],
+   "fixed_track": null,
+   "branch_total": 7331,
+   "upstream": {
+    "source_url": "https://ftp.gnu.org/gnu/coreutils/coreutils-9.11.tar.xz",
+    "source_sha256": "394024eda0a5955217ceda9cd1201e65dc8fa3aa29c2951135a49521d57c3cc3",
+    "homepage": "https://www.gnu.org/software/coreutils/",
+    "docs_url": "https://www.gnu.org/software/coreutils/manual/html_node/du-invocation.html"
+   }
+  },
+  "gawk": {
+   "id": "gawk",
+   "name": "gawk",
+   "version": "5.4.1",
+   "language": "C",
+   "description": "GNU Awk (gawk) runs programs in the AWK language, which select lines of text by pattern and act on them.",
+   "inputs": [
+    "argv",
+    "files",
+    "stdin",
+    "env"
+   ],
+   "fixed_track": null,
+   "branch_total": 20356,
+   "upstream": {
+    "source_url": "https://ftp.gnu.org/gnu/gawk/gawk-5.4.1.tar.xz",
+    "source_sha256": "07f6f7342b7febe4313fc2c2542ad93d64fe20ad8717200109f105a826f5fd37",
+    "homepage": "https://www.gnu.org/software/gawk/",
+    "docs_url": "https://www.gnu.org/software/gawk/manual/html_node/Options.html"
+   }
+  },
+  "gcal": {
+   "id": "gcal",
+   "name": "gcal",
+   "version": "4.2.0",
+   "language": "C",
+   "description": "GNU Gcal prints calendars for one month, three months or a year, lists holidays and keeps lists of fixed dates for reminders.",
+   "inputs": [
+    "argv",
+    "files",
+    "stdin",
+    "env"
+   ],
+   "fixed_track": null,
+   "branch_total": 15632,
+   "upstream": {
+    "source_url": "https://www.alteholz.dev/gnu/gcal-4.2.0.tar.xz",
+    "source_sha256": "d8bd2d7411e78251d67064aa0f1ca60a523bf856ee3e6d89d07d85a1233478dc",
+    "homepage": "https://www.gnu.org/software/gcal/",
+    "docs_url": "https://www.gnu.org/software/gcal/manual/gcal.html"
+   }
+  },
+  "grep": {
+   "id": "grep",
+   "name": "grep",
+   "version": "3.12",
+   "language": "C",
+   "description": "GNU grep prints the lines of its input that match a pattern.",
+   "inputs": [
+    "argv",
+    "files",
+    "stdin",
+    "env"
+   ],
+   "fixed_track": null,
+   "branch_total": 4806,
+   "upstream": {
+    "source_url": "https://ftp.gnu.org/gnu/grep/grep-3.12.tar.xz",
+    "source_sha256": "2649b27c0e90e632eadcd757be06c6e9a4f48d941de51e7c0f83ff76408a07b9",
+    "homepage": "https://www.gnu.org/software/grep/",
+    "docs_url": "https://www.gnu.org/software/grep/manual/grep.html"
+   }
+  },
+  "gzip": {
+   "id": "gzip",
+   "name": "gzip",
+   "version": "1.14",
+   "language": "C",
+   "description": "GNU gzip compresses files with the DEFLATE algorithm and gzip -d decompresses them.",
+   "inputs": [
+    "argv",
+    "files",
+    "stdin",
+    "env"
+   ],
+   "fixed_track": null,
+   "branch_total": 3083,
+   "upstream": {
+    "source_url": "https://ftp.gnu.org/gnu/gzip/gzip-1.14.tar.xz",
+    "source_sha256": "01a7b881bd220bfdf615f97b8718f80bdfd3f6add385b993dcf6efd14e8c0ac6",
+    "homepage": "https://www.gnu.org/software/gzip/",
+    "docs_url": "https://www.gnu.org/software/gzip/manual/gzip.html"
+   }
+  },
+  "jq": {
+   "id": "jq",
+   "name": "jq",
+   "version": "1.8.2",
+   "language": "C",
+   "description": "jq is a command-line JSON processor. Its filter argument is a program in the jq language that transforms the JSON it reads.",
+   "inputs": [
+    "argv",
+    "files",
+    "stdin",
+    "env"
+   ],
+   "fixed_track": null,
+   "branch_total": 18280,
+   "upstream": {
+    "source_url": "https://github.com/jqlang/jq/releases/download/jq-1.8.2/jq-1.8.2.tar.gz",
+    "source_sha256": "71b8d6e8f5fe81f6c6d0d110e3892251f6ce76ed095abd315e26e6e1193af3af",
+    "homepage": "https://jqlang.org/",
+    "docs_url": "https://jqlang.org/manual/"
+   }
+  },
+  "krep": {
+   "id": "krep",
+   "name": "Krep",
+   "version": "9c4d41ce92f4e9ef6dc786eaf0e5be488153c4b4",
+   "language": "C",
+   "description": "Krep is a string-search utility for the command line, written in C and similar to grep.",
+   "inputs": [
+    "argv",
+    "files"
+   ],
+   "fixed_track": "test {input}",
+   "branch_total": 1231,
+   "upstream": {
+    "source_url": "https://github.com/davidesantangelo/krep/archive/9c4d41ce92f4e9ef6dc786eaf0e5be488153c4b4.tar.gz",
+    "source_sha256": "18298b91d2edd24f0e2e56a703c3fb372d218bfa63038b689f4b084bd8b1a87e",
+    "homepage": "https://github.com/davidesantangelo/krep",
+    "docs_url": "https://github.com/davidesantangelo/krep"
+   }
+  },
+  "libmatheval": {
+   "id": "libmatheval",
+   "name": "Libmatheval",
+   "version": "1.1.11",
+   "language": "C",
+   "description": "GNU libmatheval is a library that parses and evaluates mathematical expressions written as text. The replay measures it through a small driver that reads its input from standard input.",
+   "inputs": [
+    "stdin"
+   ],
+   "fixed_track": "stdin",
+   "branch_total": 591,
+   "upstream": {
+    "source_url": "https://ftp.gnu.org/gnu/libmatheval/libmatheval-1.1.11.tar.gz",
+    "source_sha256": "474852d6715ddc3b6969e28de5e1a5fbaff9e8ece6aebb9dc1cc63e9e88e89ab",
+    "homepage": "https://www.gnu.org/software/libmatheval/",
+    "docs_url": "https://www.gnu.org/software/libmatheval/"
+   }
+  },
+  "libyaml": {
+   "id": "libyaml",
+   "name": "LibYAML",
+   "version": "0.2.5",
+   "language": "C",
+   "description": "LibYAML is a C library for parsing and emitting YAML. The replay measures its parser through run-parser-test-suite, a driver that prints the parser's events as text.",
+   "inputs": [
+    "stdin"
+   ],
+   "fixed_track": "stdin",
+   "branch_total": 4275,
+   "upstream": {
+    "source_url": "https://github.com/yaml/libyaml/releases/download/0.2.5/yaml-0.2.5.tar.gz",
+    "source_sha256": "c642ae9b75fee120b2d96c712538bd2cf283228d2337df2cf2988e3c02678ef4",
+    "homepage": "https://github.com/yaml/libyaml",
+    "docs_url": "https://github.com/yaml/libyaml"
+   }
+  },
+  "ls": {
+   "id": "ls",
+   "name": "ls",
+   "version": "9.11",
+   "language": "C",
+   "description": "GNU ls lists the contents of directories.",
+   "inputs": [
+    "argv",
+    "files",
+    "stdin",
+    "env"
+   ],
+   "fixed_track": null,
+   "branch_total": 4441,
+   "upstream": {
+    "source_url": "https://ftp.gnu.org/gnu/coreutils/coreutils-9.11.tar.xz",
+    "source_sha256": "394024eda0a5955217ceda9cd1201e65dc8fa3aa29c2951135a49521d57c3cc3",
+    "homepage": "https://www.gnu.org/software/coreutils/",
+    "docs_url": "https://www.gnu.org/software/coreutils/manual/html_node/ls-invocation.html"
+   }
+  },
+  "oggenc": {
+   "id": "oggenc",
+   "name": "Oggenc",
+   "version": "1.4.3+235540c05ad3",
+   "language": "C",
+   "description": "oggenc, from vorbis-tools, encodes audio into the Ogg Vorbis format.",
+   "inputs": [
+    "argv",
+    "files"
+   ],
+   "fixed_track": "{input}",
+   "branch_total": 1138,
+   "upstream": {
+    "source_url": "https://github.com/xiph/vorbis-tools/archive/235540c05ad3f9cdc673ca09c237c9a9b5bda6eb.tar.gz",
+    "source_sha256": "2551491fa2d062ec1a8a3e45967c690f61346d276e3818fdfd8b092fc92a1f11",
+    "homepage": "https://github.com/xiph/vorbis-tools",
+    "docs_url": "https://manpages.debian.org/bookworm/vorbis-tools/oggenc.1.en.html"
+   }
+  },
+  "sed": {
+   "id": "sed",
+   "name": "sed",
+   "version": "4.10",
+   "language": "C",
+   "description": "GNU sed is a stream editor that applies a script of editing commands to its input in a single pass.",
+   "inputs": [
+    "argv",
+    "files",
+    "stdin",
+    "env"
+   ],
+   "fixed_track": null,
+   "branch_total": 6958,
+   "upstream": {
+    "source_url": "https://ftp.gnu.org/gnu/sed/sed-4.10.tar.xz",
+    "source_sha256": "b8e72182b2ec96a3574e2998c47b7aaa64cc20ce000d8e9ac313cc07cecf28c7",
+    "homepage": "https://www.gnu.org/software/sed/",
+    "docs_url": "https://www.gnu.org/software/sed/manual/sed.html"
+   }
+  },
+  "woff2": {
+   "id": "woff2",
+   "name": "WOFF2",
+   "version": "0f4d304faa1c+brotli-533843e3546c",
+   "language": "C++",
+   "description": "WOFF2 is a compressed web font format. The replay runs woff2_decompress, which converts a WOFF2 file back into a font file.",
+   "inputs": [
+    "files"
+   ],
+   "fixed_track": "{input}",
+   "branch_total": 11412,
+   "upstream": {
+    "source_url": "https://github.com/google/woff2/archive/0f4d304faa1c62994536dc73510305c7357da8d4.tar.gz",
+    "source_sha256": "5bca353b359f7ea4a0c0171d5249368e154a2246d59265c4dd1aeda7db309286",
+    "homepage": "https://github.com/google/woff2",
+    "docs_url": "https://www.w3.org/TR/WOFF2/"
+   }
+  },
+  "xmlwf": {
+   "id": "xmlwf",
+   "name": "xmlwf",
+   "version": "2.8.2",
+   "language": "C",
+   "description": "xmlwf, which ships with the Expat library, checks whether an XML document is well-formed. It does not validate against a DTD.",
+   "inputs": [
+    "argv",
+    "files",
+    "stdin",
+    "env"
+   ],
+   "fixed_track": null,
+   "branch_total": 6293,
+   "upstream": {
+    "source_url": "https://github.com/libexpat/libexpat/releases/download/R_2_8_2/expat-2.8.2.tar.xz",
+    "source_sha256": "3ad89b8588e6644bd4e49981480d48b21289eebbcd4f0a1a4afb1c29f99b6ab4",
+    "homepage": "https://libexpat.github.io/",
+    "docs_url": "https://github.com/libexpat/libexpat/blob/R_2_8_2/expat/doc/xmlwf.xml"
+   }
+  },
+  "xorriso": {
+   "id": "xorriso",
+   "name": "xorriso",
+   "version": "1.5.8.pl02",
+   "language": "C",
+   "description": "GNU xorriso creates and changes ISO 9660 file system images with Rock Ridge extensions and can write them to optical media.",
+   "inputs": [
+    "argv",
+    "files",
+    "stdin",
+    "env"
+   ],
+   "fixed_track": null,
+   "branch_total": 54607,
+   "upstream": {
+    "source_url": "https://ftp.gnu.org/gnu/xorriso/xorriso-1.5.8.pl02.tar.gz",
+    "source_sha256": "b1455ecafbf0692ddafe1d71002a96f2ce2d77f4deae602678261ce033f97bc8",
+    "homepage": "https://www.gnu.org/software/xorriso/",
+    "docs_url": "https://www.gnu.org/software/xorriso/man_1_xorriso.html"
+   }
+  }
+ }
+}

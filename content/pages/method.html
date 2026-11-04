@@ -1,0 +1,8 @@
+<dl class="defs facts">
+<div id="coverage"><dt>Coverage</dt><dd>Each tool’s test cases are replayed and counted on the branches of one pinned gcov build per program. Every replay runs in a container that sees only its own processes.</dd></div>
+<div id="runs"><dt>Runs</dt><dd>† marks fewer than {{min_repeats_word}} runs. A run lasts {{budget_hours_word}} hours by default (other budgets labelled). Tables show medians.</dd></div>
+<div id="tracks"><dt>Tracks</dt><dd>On the fixed track the tool supplies only the input to a fixed command line; on the open track it also chooses arguments, files and environment. Results on different tracks do not compare; budgets and cores change what a result means.</dd></div>
+<div id="statistics"><dt>Statistics</dt><dd>A12 follows section 9 of SPEC.md.</dd></div>
+<div id="limits"><dt>Limits</dt><dd>A crash or timeout writes no coverage. A model may have seen the programs. Of {{systems}} entries, {{n_agent}} are variants of the maintainers’ agent, Agolic.{{n_agent_seeds_clause}} The maintainers ran, configured or ported every baseline. Budgets, cores and tokens are self-reported. Coverage counts the branches that test cases reach. A sanitiser signature is an untriaged report.</dd></div>
+<div id="standard"><dt>Specification</dt><dd>SPEC.md in the {{spec_repo}} repository defines the replay and governs where this page differs.</dd></div>
+</dl>
