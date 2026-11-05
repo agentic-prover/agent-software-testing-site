@@ -40,7 +40,7 @@ BUGS = [
     ("map-first-run-only", "numbers", "a branch map counts only the first run of each tool", "sitebuild/mapdata.py", "for rp in runs:\n            union.update", "for rp in runs[:1]:\n            union.update"),
     ("sanitiser-single-findings-hidden", "numbers", "a program page leaves out kinds found only once", "sitebuild/pages.py", 'x["san"] == san and x["n"] > 0', 'x["san"] == san and x["n"] > 1'),
     ("tools-last-entry-missing", "numbers", "Tools skips the last entry of the release", "sitebuild/pages.py", "    dash = '<span class=\"muted\">–</span>'\n    for s in m.systems:", "    dash = '<span class=\"muted\">–</span>'\n    for s in m.systems[:-1]:"),
-    ("release-date-wrong-field", "numbers", "the page states the release name where the date belongs", "sitebuild/pages.py", 'Data of {esc(f["date_long"])}', 'Data of {esc(f["release"])}'),
+    ("release-date-wrong-field", "numbers", "the page states the release name where the date belongs", "sitebuild/html.py", 'day = ctx.facts.get("date_long", "")', 'day = ctx.facts.get("release", "")'),
     ("superseded-in-latest", "numbers", "Results keeps superseded entries in its default view", "sitebuild/data.py", 's["status"] == "current" and s["in_release"]]', 's["in_release"]]', "all"),
     ("median-of-even-runs", "statistics", "the median of an even number of runs takes the lower middle one", "sitebuild/data.py", "m = (s[n // 2 - 1] + s[n // 2]) / 2", "m = s[n // 2 - 1]"),
     ("a12-ties-python", "statistics", "ties count as wins in A12 (build)", "sitebuild/data.py", "u += 1.0 if x > y else (0.5 if x == y else 0.0)", "u += 1.0 if x >= y else 0.0"),
