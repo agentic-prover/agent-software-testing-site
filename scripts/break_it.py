@@ -22,6 +22,8 @@ import sys
 import tempfile
 from pathlib import Path
 
+RELEASE_REF = re.search(r'"release_ref": "[^"]*"', (Path(__file__).resolve().parent.parent / "site.json").read_text(encoding="utf-8")).group(0)
+
 HERE = Path(__file__).resolve().parent.parent
 
 # (id, what a reader or maintainer cares about, the mistake, file, text to find, text to put in its place)
@@ -54,7 +56,7 @@ BUGS = [
     ("font-file-renamed", "links", "a font file is not where the style sheet says", "src/assets/site.css", "url(@@FONTS@@funnel-display-latin.woff2)", "url(@@FONTS@@funnel-display.woff2)"),
     ("root-relative-nav", "links", "the bar links by a path from the root", "sitebuild/html.py", "'<a href=\"%s\"%s>%s</a>' % (ctx.page(h),", "'<a href=\"/%s\"%s>%s</a>' % (ctx.page(h),"),
     ("fonts-from-google", "private", "the configuration asks for web fonts from Google", "site.json", '"fonts": "self"', '"fonts": "google"'),
-    ("release-tag-missing", "links", "links to data files stop naming the release", "site.json", '"release_ref": "v0.1.0"', '"release_ref": ""'),
+    ("release-tag-missing", "links", "links to data files stop naming the release", "site.json", RELEASE_REF, '"release_ref": ""'),
     ("search-hidden", "findable", "the public site asks search engines to stay away", "site.json", '"noindex": false', '"noindex": true'),
     ("base-address-lost", "links", "the configuration loses its base address", "site.json", '"base_url": "/"', '"base_url": ""'),
     ("theme-not-applied", "theme", "the switch no longer turns the site dark", "src/assets/app.js", 'if (dark) root.setAttribute("data-theme", "dark"); else root.removeAttribute("data-theme");', 'root.removeAttribute("data-theme");'),
