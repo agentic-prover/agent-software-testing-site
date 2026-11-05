@@ -1,6 +1,6 @@
 # Contributing to the Agent Software Testing site
 
-This repository generates the static website of Agent Software Testing from a results release (the `agent-software-testing-results` repository). The output
+This repository generates the static website of Agent Software Testing from the data of the results repository (`agent-software-testing-results`). The output
 is plain HTML, CSS, JavaScript and data files with relative links only. The standard itself is in the `agent-software-testing` repository. Everyone who takes part
 follows its Code of Conduct (`CODE_OF_CONDUCT.md`).
 
@@ -50,7 +50,7 @@ tests/          pytest tests
 site.json       settings of the build
 ```
 
-The prose of Method and Contribute can be edited without touching Python. Prose that quotes a number takes it from the release at build time; do not type
+The prose of Method and Contribute can be edited without touching Python. Prose that quotes a number takes it from the data at build time; do not type
 numbers that the data holds.
 
 ## Rules for the site
@@ -71,12 +71,12 @@ numbers that the data holds.
 * **Page titles** are a name of one to four words, before the site name that follows ` | `.
 * **Plain and precise text.** Say what is measured and what is not. Do not claim more than the data shows.
 
-## Adding a system or a release
+## Adding a system
 
-A new release, a new entry and a new version of a tool need no change of code. An entry is a row of `systems.csv` with the columns `tool_id`, `version`, `config`,
+A new entry and a new version of a tool need no change of code. An entry is a row of `systems.csv` with the columns `tool_id`, `version`, `config`,
 `config_sha256`, `submitted`, `first_release`, `status` and `supersedes`; its tool is a row of `tools.csv`. The build derives the colour (from the place of the tool in
 `tools.csv`) and the line style (from the order of submission among the tool's entries), shows the current entries of every tool in the default view and the others
-under "Versions: All" and writes a page for every tool and the Releases page. The name of the entry is built from its tool, a variant, its model (or cores) and a setting
+under "Versions: All" and writes a page for every tool and the Updates page. The name of the entry is built from its tool, a variant, its model (or cores) and a setting
 (`content/systems.json`, `entry_name` in `sitebuild/data.py`). A chart draws every current entry of a view, one line each.
 
 ## Pull requests
@@ -85,6 +85,6 @@ under "Versions: All" and writes a page for every tool and the Releases page. Th
 2. Run `python scripts/check_site.py dist` and `python -m pytest` and say that you did.
 3. For a visible change, add screenshots in light and dark mode and at phone width (about 375 px).
 4. Add or update a test when you change what the builder or the checker does, including a negative test when you add a rule.
-5. Maintainers review, merge and deploy the site.
+5. Maintainers review and merge. The results repository publishes the site the next time its workflows run.
 
 The code is licensed under Apache-2.0 (`LICENSE`); by contributing you license your contribution the same way. The results data is licensed under CC BY 4.0.
