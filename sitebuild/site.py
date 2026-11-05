@@ -222,7 +222,7 @@ class Site:
             ["Pages", "Compare", "compare.html", "compare two tools a12", "", ""],
             ["Pages", "Method", "method.html", "method coverage runs tracks statistics limits specification", "", ""],
             ["Pages", "Contribute", "contribute.html", "contribute submit results propose program report problem disclosure", "", ""],
-            ["Pages", "Releases", "releases.html", "releases release date counts added superseded withdrawn measured", "", ""],
+            ["Pages", "Updates", "releases.html", "updates date counts new added superseded withdrawn measured snapshot", "", ""],
             ["Pages", "Results, all versions", "all-versions.html", "all versions superseded older entries latest", "", ""],
             ["Pages", "Terms", "results.html#terms", "terms glossary definitions definition help words meaning", "definitions of the words a page uses", ""],
         ]

@@ -184,3 +184,16 @@ def test_without_a_base_address_the_404_page_finds_the_site_root_itself(real_res
     js = ("var made=[];var window={};var location={pathname:%s};var document={createElement:function(t){return {tag:t}},head:{appendChild:function(b){if(b.tag==='base')made.push(b.href)}}};%s;"
           "console.log(JSON.stringify(made.length?made[0]:''))" % (json.dumps(path), script))
     assert json.loads(subprocess.run([NODE, "-e", js], capture_output=True, text=True, check=True, timeout=30).stdout) == root
+
+
+def test_an_entry_added_since_the_snapshot_is_marked_new_for_a_while(tmp_path):
+    """The mark depends on the two dates of RELEASE.json and on nothing else, so a build stays the same for the same data."""
+    from sitebuild.data import Model
+    model = Model.__new__(Model)
+    model.release = {"snapshot_date": "2026-11-05", "date": "2026-11-20"}
+    assert model.is_new("2026-11-05") and model.is_new("2026-11-20")
+    assert not model.is_new("2026-10-16") and not model.is_new("")
+    model.release = {"snapshot_date": "2026-11-05", "date": "2027-01-20"}
+    assert not model.is_new("2026-11-10")
+    model.release = {"date": "2026-11-20"}
+    assert not model.is_new("2026-11-20")

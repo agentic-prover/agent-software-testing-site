@@ -136,15 +136,15 @@ def test_every_tool_program_and_error_kind_of_the_release_is_on_a_page(real_dist
             assert squash(kind) in page, (pid, kind)
 
 
-def test_data_pages_state_the_release_and_its_date_and_counts(real_dist, real_results):
-    """The release name, its date and the number of entries and programs at the head of the data pages are those of RELEASE.json and the CSV files."""
+def test_data_pages_state_when_the_data_changed_and_its_counts(real_dist, real_results):
+    """The date of the last change and the number of entries and programs at the head of the data pages are those of RELEASE.json and the CSV files."""
     meta = json.loads(read(real_results / "RELEASE.json"))
     day = datetime.date.fromisoformat(meta["date"])
     shown = f"{day.day} {day.strftime('%B %Y')}"
     n_sys, n_prog = len(csv_rows(real_results / "systems.csv")), len(csv_rows(real_results / "programs.csv"))
     for name, counts in (("index.html", False), ("releases.html", False), ("results.html", True), ("all-versions.html", True)):
         text = " ".join(strip_tags(read(real_dist / name)).split())
-        assert meta["release"] in text and shown in text, name
+        assert f"Updated {shown}" in text, name
         if counts:
             assert re.search(rf"\b{n_sys} entries, {n_prog} programs", text), name
 

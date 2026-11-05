@@ -1,5 +1,5 @@
 <h2 id="submit">Submit results</h2>
-<p>A submission is a set of test cases. The maintainers approve each one by hand, which can take a few working days, then replay it on each program’s pinned build. {{submitting_md}} has the steps and commands.</p>
+<p>A submission is a set of test cases. The maintainers approve each one by hand, which can take a few working days, then replay it on each program’s pinned build. You see the numbers and a preview as soon as the replay ends, and merging puts them on this site. {{submitting_md}} has the steps and commands.</p>
 <ol>
 <li><b>Run the tool.</b> Choose any programs; each needs {{min_repeats_word}} runs, {{budget_hours_word}} hours by default. Keep every test case and its time. No&nbsp;fee.</li>
 <li><b>Convert and validate.</b> An adapter turns each run into a bundle and <code>python -m agent_software_testing validate</code> checks it.</li>
@@ -14,7 +14,7 @@
 <h2 id="report">Report a problem</h2>
 <div class="tbl-wrap" tabindex="0" role="region" aria-label="Where to report a problem, by kind"><table class="tbl recs nolab"><caption class="sr">Where to report a problem, by kind</caption><thead><tr><th scope="col">What is wrong</th><th scope="col">Where to report it</th></tr></thead><tbody>
 <tr><th scope="row">The runner, validator, adapters or specification</th><td class="stk" data-label="Where to report it">The {{bug_form}}. Changes to the specification go through the {{spec_change_form}}.</td></tr>
-<tr><th scope="row">A wrong or mislabelled number</th><td class="stk" data-label="Where to report it">The {{data_form}}. The correction goes into the next release.</td></tr>
+<tr><th scope="row">A wrong or mislabelled number</th><td class="stk" data-label="Where to report it">The {{data_form}}. The correction goes into the data.</td></tr>
 <tr><th scope="row">A security problem in the runner</th><td class="stk" data-label="Where to report it">A private report, as {{security_md}} describes.</td></tr>
 <tr><th scope="row">A bug in one of the {{programs}} programs</th><td class="stk" data-label="Where to report it">The project’s maintainers through its own reporting channel, under the disclosure policy below.</td></tr>
 <tr><th scope="row">The website</th><td class="stk" data-label="Where to report it">The {{site_form}}.</td></tr>

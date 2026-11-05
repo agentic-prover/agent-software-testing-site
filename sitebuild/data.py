@@ -87,6 +87,9 @@ def signed(n) -> str:
     return ("+" if n > 0 else "−") + fmt(abs(n))
 
 
+NEW_DAYS = 30      # how long an entry is marked as new
+
+
 def date_long(iso: str) -> str:
     y, m, d = iso.split("-")
     return f"{int(d)} {MONTHS[int(m) - 1]} {y}"
@@ -300,6 +303,7 @@ class Model:
                 self.warnings.append(f"systems.csv: {sid} has status {status!r}; the vocabulary is {', '.join(STATUSES)}, and it is treated as current")
                 status = "current"
             first = (r.get("first_release") or "").strip()
+            submitted = (r.get("submitted") or "").strip()
             fk = release_key(first)
             in_release = not (rk and fk and fk > rk)
             if not in_release:
@@ -317,7 +321,7 @@ class Model:
                 "cores": cores, "budget": num(r["budget_s"]), "budget_text": j.get("budget_text", ""),
                 "track": r["track"], "measure": r["measure"].split("+"), "study": tag,
                 "tool": tid, "tool_name": tool["name"], "version": (r.get("version") or "").strip() or UNKNOWN, "config": (r.get("config") or "").strip(),
-                "config_sha256": (r.get("config_sha256") or "").strip(), "submitted": (r.get("submitted") or "").strip(), "first_release": first,
+                "config_sha256": (r.get("config_sha256") or "").strip(), "submitted": submitted, "first_release": first, "new": self.is_new(submitted),
                 "status": status, "supersedes": (r.get("supersedes") or "").strip(), "superseded_by": [], "in_release": in_release,
                 "desc": j.get("description") or r["description"],
                 "uses_agent_seeds": bool(j.get("uses_agent_seeds")), "no_cores_text": j.get("no_cores_text", "not stated"),
@@ -623,6 +627,13 @@ class Model:
 
     # -- numbers the prose uses ---------------------------------------------------------------------------------
 
+    def is_new(self, submitted: str) -> bool:
+        """An entry submitted since the last snapshot of the data, for its first NEW_DAYS days."""
+        snapshot, updated = self.release.get("snapshot_date"), self.release.get("date")
+        if not (submitted and snapshot and updated) or submitted < snapshot:
+            return False
+        return date_ordinal(updated) - date_ordinal(submitted) <= NEW_DAYS
+
     def facts(self) -> dict:
         """Counts and ranges quoted in prose, all computed from the release files."""
         totals = [p["total"] for p in self.programs]
@@ -640,7 +651,7 @@ class Model:
             "release": self.release_id, "tools": len(self.tools), "entries": len(self.systems), "n_studies": len(self.studies),
             "n_current": sum(1 for x in self.systems if x["status"] == "current"), "n_superseded": sum(1 for x in self.systems if x["status"] == "superseded"),
             "n_withdrawn": sum(1 for x in self.systems if x["status"] == "withdrawn"),
-            "n_added": sum(1 for x in self.systems if x["first_release"] and x["first_release"] == self.release_id),
+            "n_new": sum(1 for x in self.systems if x["new"]),
             "n_fixed_programs": len(self.fixed_programs),
             "n_fixed_default": sum(1 for x in self.study_entries(self.primary) if x["track"] == "fixed"),
             "n_agent": sum(1 for x in self.systems if x["family"] == "agent"),

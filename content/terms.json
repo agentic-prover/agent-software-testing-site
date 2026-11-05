@@ -10,7 +10,7 @@
   {"term": "standard", "text": "Conventional gcov replay of every retained test case, same counting code and denominators.", "pages": ["results", "tools", "compare", "program"], "group": "Measures", "mono": true, "anchor": "standard"},
   {"term": "Unreached", "text": "A branch that none of the main-group tools that ran on the program reaches ({pool_range} tools).", "pages": ["results", "program"], "group": "Measures"},
   {"term": "Union of runs", "text": "The branches that at least one of a tool's runs reaches, each counted once.", "pages": ["program"], "group": "Measures"},
-  {"term": "Output tokens", "text": "Model output of a whole campaign, reasoning included, as self-reported in the release.", "pages": ["tools", "compare", "program"], "group": "Measures"},
+  {"term": "Output tokens", "text": "Model output of a whole campaign, reasoning included, as self-reported.", "pages": ["tools", "compare", "program"], "group": "Measures"},
   {"term": "Sanitiser signature", "text": "The sanitiser, the error kind and the innermost frame in the program's own source; two can share a cause.", "pages": ["program"], "group": "Measures"},
   {"term": "Agent", "text": "A language model that plans a campaign of other tools or inputs and reads the results.", "pages": ["results", "tools", "compare"], "group": "Families"},
   {"term": "Language model", "text": "A system in which a language model does the central reasoning of a classical technique, such as concolic execution.", "pages": ["results", "tools", "compare", "program"], "group": "Families"},
@@ -21,9 +21,9 @@
   {"term": "Ablation", "text": "Variants of the agent that switch off or change one part, to show what that part adds.", "pages": ["results", "tools", "compare", "program"], "group": "Groups"},
   {"term": "Seeding", "text": "Runs of a tool that start from seeds produced by another system.", "pages": ["results", "tools", "compare", "program"], "group": "Groups"},
   {"term": "Control", "text": "Systems that run without the agent, as a reference for the main group.", "pages": ["results", "tools", "compare", "program"], "group": "Groups"},
-  {"term": "Release", "text": "A dated snapshot of the data, named like 2026.1. It never changes; corrections go into the next release.", "pages": ["results", "tools", "tool", "releases", "program", "compare"], "group": "Versions"},
+  {"term": "Snapshot", "text": "A tagged copy of the data that a paper can cite. It never changes; the data on this site moves on.", "pages": ["results", "tools", "tool", "releases", "program", "compare"], "group": "Versions"},
   {"term": "Entry", "text": "A tool in one version and configuration, with a model, a track and a budget. One row of the data.", "pages": ["results", "tools", "tool", "releases"], "group": "Versions"},
-  {"term": "Superseded", "text": "An entry that a newer one replaces. It stays in the release and shows under all versions.", "pages": ["results", "tools", "tool", "releases", "program"], "group": "Versions"},
+  {"term": "Superseded", "text": "An entry that a newer one replaces. It stays in the data and shows under all versions.", "pages": ["results", "tools", "tool", "releases", "program"], "group": "Versions"},
   {"term": "Withdrawn", "text": "An entry taken out of the comparison after it was published.", "pages": ["results", "tools", "tool", "releases", "program"], "group": "Versions"},
   {"term": "A12", "text": "The probability that a run of A covers more branches than a run of B, ties counting half.", "pages": ["compare"], "group": "Statistics", "anchor": "statistics"}
  ]

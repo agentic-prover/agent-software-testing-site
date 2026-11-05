@@ -91,19 +91,19 @@ def task_list(ctx: Ctx) -> str:
         ("Read the results", ctx.results, "Median coverage of every tool on every program, as a table.", ' data-results'),
         ("Compare two tools", ctx.page("compare.html"), "Two tools side by side on the programs both ran on.", ""),
         ("Submit a tool", ctx.page("contribute.html") + "#submit", "For authors of a test generator who want it measured beside these.", ""),
-        ("Check the release", ctx.page("releases.html"), "Its name, date, counts and what it was measured with.", ""),
+        ("See what changed", ctx.page("releases.html"), "What is new, and what the data was measured with.", ""),
     ]
     lis = "".join(f'<li><a href="{h}"{x}>{a}</a><p>{b}</p></li>' for a, h, b, x in items)
     return f'<nav class="tasks" aria-label="Tasks"><h2 class="sr">Tasks</h2><ul>{lis}</ul></nav>\n'
 
 
 def home_page(ctx: Ctx) -> str:
-    """The front page: the heading and the release line (the release and the date of its data), one real branch map, the strip of every program, how a number is
+    """The front page: the heading and the line that says when the data last changed, one real branch map, the strip of every program, how a number is
     made, and where to go next. Every count on the page is computed from the release at build time."""
     m, f = ctx.model, ctx.facts
     body = (f'<div class="home" data-src="data/{strip.data_folder(m)}/">\n<header class="home-head col">\n'
             f'<h1 class="home-title">{esc(HOME_TITLE)}</h1>\n'
-            + release_line(ctx, f'<span class="rel">Data of {esc(f["date_long"])}</span>') + '\n</header>\n'
+            + release_line(ctx) + '\n</header>\n'
             + hero_figure(ctx) + strip_figure(ctx) + flow_figure() + task_list(ctx) + '</div>')
     # The sentence for search engines and link previews is the "description" of site.json.
     home_desc = ctx.cfg.get("description") or (
@@ -281,7 +281,7 @@ def results_page(ctx: Ctx, versions: str = "latest") -> str:
         f'<label><input type="radio" name="rgroup" value="{st["slug"]}"{" checked" if st["id"] == m.primary else ""} aria-controls="g-{st["slug"]}"><span>{esc(st["title"])}</span></label>'
         for st in m.studies)
     body = (f'<div class="page-head">\n<h1>Results{", all versions" if versions == "all" else ""}</h1>\n'
-            + release_line(ctx, f'<span class="rel">Data of {esc(f["date_long"])}</span><span>{fmt(f["entries"])} entries, {f["programs"]} programs, {fmt(f["runs"])} runs</span>') + "\n"
+            + release_line(ctx, f'<span>{fmt(f["entries"])} entries, {f["programs"]} programs, {fmt(f["runs"])} runs</span>') + "\n"
             '<p class="lede">Median final branch coverage of test cases replayed on one pinned gcov build per program.</p>\n</div>\n'
             + f'<div class="controls">\n{versions_control(ctx, versions)}\n'
             f'<div class="ctl js-only"><span class="k" id="lbl-g">Group</span><div class="seg seg-scroll fade-x" role="radiogroup" aria-labelledby="lbl-g">{grp}</div></div>\n'
@@ -306,20 +306,18 @@ def tool_file(tid: str) -> str:
 
 
 def status_tag(s: dict) -> str:
-    """The mark of an entry that is not current (superseded or withdrawn), with the entry that replaced it where there is one."""
+    """The mark of an entry that is new or not current (superseded or withdrawn), with the entry that replaced it where there is one."""
     if s["status"] == "current":
-        return ""
+        return ' <span class="tag status" title="Added recently">new</span>' if s.get("new") else ""
     by = f' title="Superseded by {esc(", ".join(s["superseded_by"]))}"' if s["superseded_by"] else ""
     return f' <span class="tag status"{by}>{esc(s["status"])}</span>'
 
 
 def version_line(m: Model, s: dict) -> str:
-    """What identifies an entry beyond its name: version, submission date, first release and status, and the entry it replaces or was replaced by."""
+    """What identifies an entry beyond its name: version, submission date and status, and the entry it replaces or was replaced by."""
     bits = [f"Version {s['version']}"]
     if s["submitted"]:
         bits.append(f"submitted {s['submitted']}")
-    if s["first_release"]:
-        bits.append(f"added in release {s['first_release']}")
     bits.append(s["status"])
     if s["supersedes"] and s["supersedes"] in m.S:
         bits.append(f"supersedes {m.S[s['supersedes']]['label']}")
@@ -965,7 +963,7 @@ def tool_versions_table(ctx: Ctx, tool: dict) -> str:
     m: Model = ctx.model
     h = ('<table class="tbl fit recs"><caption class="sr">Every entry of ' + esc(tool["name"]) + '</caption><thead><tr>'
          '<th class="sticky" scope="col">Entry</th><th scope="col">Version</th><th scope="col">Model</th><th scope="col">Configuration</th><th scope="col">Submitted</th>'
-         '<th scope="col">First release</th><th class="r" scope="col">Programs covered</th><th scope="col">Status</th></tr></thead><tbody>')
+         '<th class="r" scope="col">Programs covered</th><th scope="col">Status</th></tr></thead><tbody>')
     dash = '<span class="muted">–</span>'
     for s in m.tool_entries(tool["id"]):
         status = esc(s["status"]) + (f' <span class="muted">by {esc(name_list([m.S[x]["label"] for x in s["superseded_by"]]))}</span>' if s["superseded_by"] else "")
@@ -974,7 +972,6 @@ def tool_versions_table(ctx: Ctx, tool: dict) -> str:
               f'<td data-label="Model">{esc(s["model_name"]) if s["model_name"] else dash}</td>'
               f'<td class="wrap" data-label="Configuration" data-verbatim>{esc(s["config"]) if s["config"] else dash}</td>'
               f'<td class="num" data-label="Submitted">{esc(s["submitted"]) if s["submitted"] else dash}</td>'
-              f'<td class="num" data-label="First release">{esc(s["first_release"]) if s["first_release"] else dash}</td>'
               f'<td class="num r" data-label="Programs covered">{programs_covered(m, s)}</td>'
               f'<td data-label="Status">{status}</td></tr>')
     return h + "</tbody></table>"
@@ -1029,35 +1026,38 @@ def tool_page(ctx: Ctx, tool: dict) -> str:
     if sum(1 for s in entries if s["primary"]) > 1:
         body += ('<section class="section" id="coverage"><div class="section-head"><h2 id="h-coverage">Median coverage by version</h2></div>'
                  + tbl_wrap(tool_coverage_table(ctx, tool), f"Median final coverage of the entries of {tool['name']}", "narrow") + '</section>\n')
-    return page(ctx, key="tool", title=title_of(ctx, tool["name"]), active="tools", desc=f"Every version of {tool['name']} in release {ctx.facts['release'] or 'of the data'}: model, configuration, dates, programs covered and status.", body=body)
+    return page(ctx, key="tool", title=title_of(ctx, tool["name"]), active="tools", desc=f"Every version of {tool['name']} in the data: model, configuration, dates, programs covered and status.", body=body)
 
 
 def releases_page(ctx: Ctx) -> str:
-    """The release in hand: its name, date and counts, what it added, superseded and withdrew, and what it was measured with. The site holds one release; a release
-    names the one before it, so that the order of releases is on record. Every number is counted from the release files at build time."""
+    """Updates: when the data last changed, its counts, the entries added recently and what the data was measured with. Every number is counted from the results
+    files at build time. Git holds the rest of the history."""
     m, f = ctx.model, ctx.facts
     rel = m.release
-    cols = [("Release", esc(f["release"]) if f["release"] else '<span class="muted">not named</span>'), ("Date", esc(f["date_long"])), ("Entries", fmt(f["entries"])),
-            ("Tools", fmt(f["tools"])), ("Programs", fmt(f["programs"])), ("Runs", fmt(f["runs"])), ("Added", fmt(f["n_added"])),
-            ("Superseded", fmt(f["n_superseded"])), ("Withdrawn", fmt(f["n_withdrawn"]))]
-    head = "".join(f'<th{" class=" + chr(34) + {0: "sticky", 1: ""}.get(i, "r") + chr(34) if i != 1 else ""} scope="col">{k}</th>' for i, (k, _) in enumerate(cols))
-    cells = f'<th class="sticky" scope="row">{cols[0][1]}</th><td data-label="Date">{cols[1][1]}</td>' + "".join(
-        f'<td class="num r" data-label="{k}">{v}</td>' for k, v in cols[2:])
-    table = f'<table class="tbl fit recs"><caption class="sr">The releases</caption><thead><tr>{head}</tr></thead><tbody><tr>{cells}</tr></tbody></table>'
+    cols = [("Updated", esc(f["date_long"])), ("Entries", fmt(f["entries"])), ("Tools", fmt(f["tools"])), ("Programs", fmt(f["programs"])), ("Runs", fmt(f["runs"])),
+            ("New", fmt(f["n_new"])), ("Superseded", fmt(f["n_superseded"])), ("Withdrawn", fmt(f["n_withdrawn"]))]
+    head = "".join(f'<th{" class=" + chr(34) + "sticky" + chr(34) if i == 0 else " class=" + chr(34) + "r" + chr(34)} scope="col">{k}</th>' for i, (k, _) in enumerate(cols))
+    cells = f'<th class="sticky" scope="row">{cols[0][1]}</th>' + "".join(f'<td class="num r" data-label="{k}">{v}</td>' for k, v in cols[1:])
+    table = f'<table class="tbl fit recs"><caption class="sr">The data now</caption><thead><tr>{head}</tr></thead><tbody><tr>{cells}</tr></tbody></table>'
+    fresh = sorted((s for s in m.systems if s["new"]), key=lambda s: (s["submitted"], s["id"]), reverse=True)
+    new_rows = "".join(f'<tr><th class="sticky wrap" scope="row"><a class="pname" href="{ctx.page("tools.html")}#{esc(s["id"])}">{esc(s["label"])}</a></th>'
+                       f'<td class="num" data-label="Added">{esc(s["submitted"])}</td></tr>' for s in fresh)
+    new_table = ('<table class="tbl fit recs"><caption class="sr">Entries added recently</caption><thead><tr><th class="sticky" scope="col">Entry</th><th scope="col">Added</th></tr></thead>'
+                 f'<tbody>{new_rows}</tbody></table>')
     rows = []
-    for key, label in (("specification", "Specification"), ("image", "Replay image"), ("runner", "Runner"), ("profile", "Profile"), ("previous_release", "Previous release")):
+    for key, label in (("specification", "Specification"), ("image", "Replay image"), ("runner", "Runner"), ("profile", "Profile")):
         v = rel.get(key)
         if v:
             rows.append((label, esc(str(v))))
     measured = "".join(f"<div><dt>{k}</dt><dd>{v}</dd></div>" for k, v in rows)
-    body = (f'<div class="page-head"><h1>Releases</h1>\n{release_line(ctx)}\n'
-            '<p class="lede lede-sm">A release is a dated snapshot of the data.</p></div>\n'
+    body = (f'<div class="page-head"><h1>Updates</h1>\n{release_line(ctx)}\n'
+            '<p class="lede lede-sm">The data changes when a submission is accepted. A snapshot is a tagged copy that a paper can cite.</p></div>\n'
             f'<div class="controls"><span class="ctl">{terms(ctx, "releases")}</span><span class="grow"></span><span class="ctl">{results_file(ctx, "RELEASE.json")}</span></div>\n'
-            + tbl_wrap(table, "Releases", "recsframe")
-            + '\n<p class="tkey">Added: entries new in this release. Superseded and withdrawn: entries with that status in this release.</p>\n'
-            + (f'<section class="section" id="measured"><div class="section-head"><h2 id="h-measured">Measured with</h2></div><dl class="notes-dl">{measured}</dl></section>\n' if rows else ""))
-    return page(ctx, key="releases", title=title_of(ctx, "Releases"), active="",
-                desc="The releases of the data: name, date, counts, what was added, superseded or withdrawn, and what each was measured with.", body=body)
+            + tbl_wrap(table, "The data now", "recsframe") + "\n"
+            + (f'<section class="section" id="new"><div class="section-head"><h2 id="h-new">New</h2></div>{tbl_wrap(new_table, "Entries added recently", "recsframe")}</section>\n' if fresh else "")
+            + (f'<section class="section" id="measured"><div class="section-head"><h2 id="h-measured">Measured with</h2></div><dl class="notes-dl">{measured}</dl></section>\n' if measured else ""))
+    return page(ctx, key="releases", title=title_of(ctx, "Updates"), active="",
+                desc="When the data last changed, what is new and what the data was measured with.", body=body)
 
 
 # ---- Documents (Method, Contribute) ----------------------------------------------------------------------

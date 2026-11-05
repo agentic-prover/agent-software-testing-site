@@ -229,10 +229,10 @@ def palette() -> str:
 
 
 def release_line(ctx: Ctx, spans: str = "") -> str:
-    """The line under the title of a data page: the release it shows (a link to Releases) and, on the page that states them, the date and the counts. It is part
-    of the page frame, like the bar: an identifier, a date and counts, no sentence."""
-    rid = ctx.facts.get("release", "")
-    stamp = (f'<a class="relid" href="{ctx.page("releases.html")}" title="The release this page shows. Releases lists them.">Release {esc(rid)}</a>' if rid else "")
+    """The line under the title of a data page: when the data last changed (a link to Updates) and, on the page that states them, the counts. It is part of the
+    page frame, like the bar: a date and counts, no sentence."""
+    day = ctx.facts.get("date_long", "")
+    stamp = (f'<a class="relid" href="{ctx.page("releases.html")}" title="When the data last changed. Updates says what changed.">Updated {esc(day)}</a>' if day else "")
     return f'<div class="releaseline">{stamp}{spans}</div>'
 
 
