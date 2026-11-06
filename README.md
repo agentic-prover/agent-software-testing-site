@@ -80,7 +80,6 @@ src/assets/     style sheets, scripts and the fonts that the pages use
 src/logo/       the favicon set
 scripts/        check_site.py, pages_build.py and the browser checks that tests/README.md describes
 tests/          pytest suite
-docs/           the built site that GitHub Pages serves
 site.json       settings of the build
 ```
 
